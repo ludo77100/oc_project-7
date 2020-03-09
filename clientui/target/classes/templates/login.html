@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bibliothèqe</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.4.1-1/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="container">
+    <div>
+        <form th:action="@{/login}" method="post">
+            <fieldset>
+                <div>
+                    <label for="pseudo">Username</label>
+                    <input type="text" id="pseudo" name="pseudo" placeholder="pseudo" required="required" autofocus="autofocus" />
+                </div>
+
+                <div>
+                    <label for="motDePass">Password</label>
+                    <input type="motDePass" id="motDePass" name="motDePass" placeholder="motDePass" required="required" />
+                </div>
+
+                <div>
+                    <input type="submit" value="Connexion" />
+                </div>
+
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+            </fieldset>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="webjars/bootstrap/4.4.1-1/js/bootstrap.min.js"></script>
+</body>
+</html>

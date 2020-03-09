@@ -1,0 +1,17 @@
+    <!DOCTYPE HTML>
+    <html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Bibliothèqe</title>
+        <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.4.1-1/css/bootstrap.min.css" />
+    </head>
+    <body>
+    <div class="container">
+        <h1>Application Bibliothèque</h1>
+        <div class="card" th:each="listeLivres : ${listeLivres}">
+            <div class="card-title" th:text="${listeLivres.titre}"></div>
+            <div class="card-body"><p th:text="${listeLivres.auteur}"></p> </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="webjars/bootstrap/4.4.1-1/js/bootstrap.min.js"></script>
+    </body>
+    </html>

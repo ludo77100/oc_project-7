@@ -12,12 +12,23 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <div class="row">
-        <div class="col-lg-3"></div>
+    <div class=" container-fluid row">
+        <div class="col-lg-3">
+            <div class="card border-dark spacer">
+                <div class="card-header text-white bg-dark">Besoin d'un compte ?</div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> Si vous ne possédez pas de compte, merci de vous rapprocher de la bibliothèque !</li>
+                    <li class="list-group-item">Téléphone: 01 23 45 56 78</li>
+                    <li class="list-group-item">Email: biblisuper@paris.fr</li>
+                </ul>
 
+            </div>
+        </div>
+        </div>
         <div class="col-lg-6">
-            <div class="card spacer">
-                <div class="card-header">Connexion</div>
+            <div class="card border-dark spacer">
+                <div class="card-header text-white bg-dark">Connexion</div>
                 <div class="card-body">
                     <form th:action="@{connexion}" method="post">
 
@@ -36,7 +47,7 @@
                         </div>
 
                         <div>
-                            <button type="submit" class="btn btn-primary">Connexion</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Connexion</button>
                         </div>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                     </form>

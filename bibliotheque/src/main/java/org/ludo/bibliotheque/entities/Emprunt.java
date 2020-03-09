@@ -1,7 +1,5 @@
 package org.ludo.bibliotheque.entities;
 
-import sun.java2d.loops.GeneralRenderer;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,26 +11,18 @@ public class Emprunt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long emprunt ;
-    private Date dateDebut ;
-    private Date dateFin ;
-    private boolean prolongeable ;
+    private Long idEmprunt;
+    private Date dateDebut;
+    private Date dateFin;
+    private boolean prolongeable;
 
     public Emprunt() {
     }
 
     public Emprunt(Date dateDebut, Date dateFin, boolean prolongeable) {
-        this.dateFin = dateFin ;
-        this.dateDebut = dateDebut ;
-        this.prolongeable = prolongeable ;
-    }
-
-    public Long getEmprunt() {
-        return emprunt;
-    }
-
-    public void setEmprunt(Long emprunt) {
-        this.emprunt = emprunt;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.prolongeable = prolongeable;
     }
 
     public Date getDateDebut() {
@@ -61,9 +51,8 @@ public class Emprunt {
 
     @Override
     public String toString() {
-        return "Emprunt{" +
-                "emprunt=" + emprunt +
-                ", dateDebut=" + dateDebut +
+        return "EmpruntDto{" +
+                "dateDebut=" + dateDebut +
                 ", dateFin=" + dateFin +
                 ", prolongeable=" + prolongeable +
                 '}';

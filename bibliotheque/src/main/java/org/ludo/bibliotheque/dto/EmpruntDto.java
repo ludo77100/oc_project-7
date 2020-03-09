@@ -4,23 +4,14 @@ import java.util.Date;
 
 public class EmpruntDto {
 
-    private Long emprunt ;
     private Date dateDebut ;
     private Date dateFin ;
     private boolean prolongeable ;
 
     public EmpruntDto(Date dateDebut, Date dateFin, boolean prolongeable) {
-        this.dateFin = dateFin ;
-        this.dateDebut = dateDebut ;
-        this.prolongeable = prolongeable ;
-    }
-
-    public Long getEmprunt() {
-        return emprunt;
-    }
-
-    public void setEmprunt(Long emprunt) {
-        this.emprunt = emprunt;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.prolongeable = prolongeable;
     }
 
     public Date getDateDebut() {
@@ -49,9 +40,8 @@ public class EmpruntDto {
 
     @Override
     public String toString() {
-        return "Emprunt{" +
-                "emprunt=" + emprunt +
-                ", dateDebut=" + dateDebut +
+        return "EmpruntDto{" +
+                "dateDebut=" + dateDebut +
                 ", dateFin=" + dateFin +
                 ", prolongeable=" + prolongeable +
                 '}';

@@ -1,6 +1,7 @@
 package org.ludo.bibliotheque.service.service.impl;
 
 import org.ludo.bibliotheque.dao.EmpruntRepository;
+import org.ludo.bibliotheque.dto.EmpruntDto;
 import org.ludo.bibliotheque.entities.Emprunt;
 import org.ludo.bibliotheque.service.EmpruntService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,18 @@ public class EmpruntServiceImpl implements EmpruntService {
     @Override
     public Optional<Emprunt> findById(Long idEmprunt) {
         return empruntRepository.findById(idEmprunt);
+    }
+
+    @Override
+    public Emprunt ouvrirEmprunt(EmpruntDto empruntDto) {
+
+        Emprunt nouvelEmprunt = new Emprunt();
+
+        nouvelEmprunt.setDateDebut(empruntDto.getDateDebut());
+        nouvelEmprunt.setDateFin(empruntDto.getDateFin());
+        nouvelEmprunt.setProlongeable(empruntDto.isProlongeable());
+
+        return empruntRepository.save(nouvelEmprunt);
     }
 
 

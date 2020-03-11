@@ -83,7 +83,7 @@ public class LivreController {
      */
     @ApiOperation(value = "Pour supprimer un livre")
     @GetMapping(value = "/livre/supprimer")
-    public void supprimerLivre(int idLivre){
+    public void supprimerLivre(Long idLivre){
         logger.debug("appel controlleur supprimerLivre");
 
         livreService.supprimerLivre(idLivre);

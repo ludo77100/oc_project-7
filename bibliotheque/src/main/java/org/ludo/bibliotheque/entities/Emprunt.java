@@ -1,9 +1,9 @@
 package org.ludo.bibliotheque.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.springframework.lang.NonNull;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -12,17 +12,42 @@ public class Emprunt {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idEmprunt;
+    private Long idUtilisateur ;
     private Date dateDebut;
     private Date dateFin;
     private boolean prolongeable;
 
+    @NonNull
+    @ManyToOne
+   @JsonManagedReference
+    private Livre livre ;
+
     public Emprunt() {
     }
 
-    public Emprunt(Date dateDebut, Date dateFin, boolean prolongeable) {
+    public Emprunt(Long idEmprunt, Long idUtilisateur, Date dateDebut, Date dateFin, boolean prolongeable, Livre livre) {
+        this.idEmprunt = idEmprunt;
+        this.idUtilisateur = idUtilisateur;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.prolongeable = prolongeable;
+        this.livre = livre;
+    }
+
+    public Long getIdEmprunt() {
+        return idEmprunt;
+    }
+
+    public void setIdEmprunt(Long idEmprunt) {
+        this.idEmprunt = idEmprunt;
+    }
+
+    public Long getIdUtilisateur() {
+        return idUtilisateur;
+    }
+
+    public void setIdUtilisateur(Long idUtilisateur) {
+        this.idUtilisateur = idUtilisateur;
     }
 
     public Date getDateDebut() {
@@ -49,12 +74,23 @@ public class Emprunt {
         this.prolongeable = prolongeable;
     }
 
+    public Livre getLivre() {
+        return livre;
+    }
+
+    public void setLivre(Livre livre) {
+        this.livre = livre;
+    }
+
     @Override
     public String toString() {
-        return "EmpruntDto{" +
-                "dateDebut=" + dateDebut +
+        return "Emprunt{" +
+                "idEmprunt=" + idEmprunt +
+                ", idUtilisateur=" + idUtilisateur +
+                ", dateDebut=" + dateDebut +
                 ", dateFin=" + dateFin +
                 ", prolongeable=" + prolongeable +
+                ", livre=" + livre +
                 '}';
     }
 }

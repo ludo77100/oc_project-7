@@ -15,5 +15,5 @@ public interface LivreService {
 
     Livre editionLivre(LivreDto livreEditionDto);
 
-    void supprimerLivre(int livre);
+    void supprimerLivre(Long livre);
 }

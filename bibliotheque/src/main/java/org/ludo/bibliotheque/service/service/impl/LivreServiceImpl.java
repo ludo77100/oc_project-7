@@ -58,7 +58,7 @@ public class LivreServiceImpl implements LivreService {
     }
 
     @Override
-    public void supprimerLivre(int idLivre) {
+    public void supprimerLivre(Long idLivre) {
         livreRepository.deleteById(idLivre);
     }
 }

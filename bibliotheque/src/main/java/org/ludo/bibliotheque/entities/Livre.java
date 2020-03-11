@@ -1,16 +1,17 @@
 package org.ludo.bibliotheque.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.springframework.lang.NonNull;
+
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class Livre {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idLivre ;
+    private Long idLivre ;
     private String titre ;
     private String auteur ;
     private String editeur ;
@@ -19,10 +20,16 @@ public class Livre {
     private int NombrePages ;
     private int quantiteDispo ;
 
-    public Livre(){
+    @NonNull
+    @JsonManagedReference
+    @OneToMany(mappedBy = "idEmprunt", fetch = FetchType.EAGER)
+    private Collection<Emprunt> emprunt;
+
+    public Livre() {
     }
 
-    public Livre(String titre, String auteur, String editeur, String decription, String isbn, int nombrePages, int quantiteDispo) {
+    public Livre(Long idLivre, String titre, String auteur, String editeur, String decription, String isbn, int nombrePages, int quantiteDispo, Collection<Emprunt> emprunt) {
+        this.idLivre = idLivre;
         this.titre = titre;
         this.auteur = auteur;
         this.editeur = editeur;
@@ -30,10 +37,15 @@ public class Livre {
         this.isbn = isbn;
         NombrePages = nombrePages;
         this.quantiteDispo = quantiteDispo;
+        this.emprunt = emprunt;
     }
 
-    public int getIdLivre() {
+    public Long getIdLivre() {
         return idLivre;
+    }
+
+    public void setIdLivre(Long idLivre) {
+        this.idLivre = idLivre;
     }
 
     public String getTitre() {
@@ -92,6 +104,14 @@ public class Livre {
         this.quantiteDispo = quantiteDispo;
     }
 
+    public Collection<Emprunt> getEmprunt() {
+        return emprunt;
+    }
+
+    public void setEmprunt(Collection<Emprunt> emprunt) {
+        this.emprunt = emprunt;
+    }
+
     @Override
     public String toString() {
         return "Livre{" +
@@ -103,6 +123,7 @@ public class Livre {
                 ", isbn='" + isbn + '\'' +
                 ", NombrePages=" + NombrePages +
                 ", quantiteDispo=" + quantiteDispo +
+                ", emprunt=" + emprunt +
                 '}';
     }
 }

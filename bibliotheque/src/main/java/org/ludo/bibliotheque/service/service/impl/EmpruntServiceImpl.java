@@ -29,6 +29,11 @@ public class EmpruntServiceImpl implements EmpruntService {
     }
 
     @Override
+    public List<Emprunt> findAllByIdUtilisateur(Long idUtilisateur) {
+        return empruntRepository.findAllByIdUtilisateur(idUtilisateur);
+    }
+
+    @Override
     public Emprunt ouvrirEmprunt(EmpruntDto empruntDto, Livre livre) {
 
         Emprunt nouvelEmprunt = new Emprunt();

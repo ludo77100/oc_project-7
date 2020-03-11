@@ -13,8 +13,9 @@ public interface EmpruntService {
 
     Optional<Emprunt> findById(Long idEmprunt);
 
-    Emprunt ouvrirEmprunt(EmpruntDto empruntDto, Livre livre);
+    List<Emprunt> findAllByIdUtilisateur(Long idUtilisateur);
 
+    Emprunt ouvrirEmprunt(EmpruntDto empruntDto, Livre livre);
 
     Emprunt cloturerEmprunt(Long idEmprunt);
 }

@@ -29,6 +29,12 @@ public class EmpruntController {
         return empruntService.findById(idEmprunt);
     }
 
+    @ApiOperation(value = "Pour lister les emprunts pour un utlisateur")
+    @GetMapping(value = "/emprunt/{idUtilisateur}")
+    public List<Emprunt> listeEmpruntUtilisateur(@RequestParam Long idUtilisateur){
+        return empruntService.findAllByIdUtilisateur(idUtilisateur) ;
+    }
+
     @ApiOperation(value = "Pour ouvrir un emprunt")
     @PostMapping(value = "/emprunt/")
     public Emprunt ouvrirEmprunt(@RequestBody EmpruntDto empruntDto, Livre livre){

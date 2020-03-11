@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 public class UtilisateurController {
 
     @GetMapping(value = "/infosPerso")
-    public String infsoPerso(Model model, HttpServletRequest request) {
+    public String infosPerso(Model model, HttpServletRequest request) {
         if (request.getRemoteUser() == null) {
             return "connexion";
         } else {

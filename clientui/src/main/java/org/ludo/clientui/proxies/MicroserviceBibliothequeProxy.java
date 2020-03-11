@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @FeignClient(name = "bibliotheque", url = "localhost:8080")
-public interface MicroserviceLivresProxy {
+public interface MicroserviceBibliothequeProxy {
 
     /*
     APIs Livre

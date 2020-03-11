@@ -17,11 +17,8 @@ public class LivreController {
 
     @RequestMapping(value = "/")
     public String index(Model model){
-
         List<LivreBean> listeLivres = livresProxy.listeLivre();
-
         model.addAttribute("listeLivresBean", listeLivres);
-
         return "index";
     }
 

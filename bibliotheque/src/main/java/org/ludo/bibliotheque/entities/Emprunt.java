@@ -16,6 +16,7 @@ public class Emprunt {
     private Date dateDebut;
     private Date dateFin;
     private boolean prolongeable;
+    private boolean enCours ;
 
     @NonNull
     @ManyToOne
@@ -25,13 +26,14 @@ public class Emprunt {
     public Emprunt() {
     }
 
-    public Emprunt(Long idEmprunt, Long idUtilisateur, Date dateDebut, Date dateFin, boolean prolongeable, Livre livre) {
+    public Emprunt(Long idEmprunt, Long idUtilisateur, Date dateDebut, Date dateFin, boolean prolongeable, boolean enCours, Livre livre) {
         this.idEmprunt = idEmprunt;
         this.idUtilisateur = idUtilisateur;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.prolongeable = prolongeable;
         this.livre = livre;
+        this.enCours = enCours ;
     }
 
     public Long getIdEmprunt() {
@@ -82,6 +84,14 @@ public class Emprunt {
         this.livre = livre;
     }
 
+    public boolean isEnCours(boolean b) {
+        return enCours;
+    }
+
+    public void setEnCours(boolean enCours) {
+        this.enCours = enCours;
+    }
+
     @Override
     public String toString() {
         return "Emprunt{" +
@@ -90,6 +100,7 @@ public class Emprunt {
                 ", dateDebut=" + dateDebut +
                 ", dateFin=" + dateFin +
                 ", prolongeable=" + prolongeable +
+                ", enCours=" + enCours +
                 ", livre=" + livre +
                 '}';
     }

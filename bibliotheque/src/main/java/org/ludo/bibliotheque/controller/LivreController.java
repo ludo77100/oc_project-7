@@ -57,7 +57,7 @@ public class LivreController {
      */
     @ApiOperation(value = "Enregistre un nouveau livre en BDD")
     @PostMapping(value ="/livre/enregistrer")
-    public Livre enregistrerNouveauLivre(@RequestBody LivreDto livreDto){
+    public Livre enregistrerNouveauLivre(@RequestBody LivreDto livreDto, Livre livre){
         logger.debug("appel controlleur enregistrerNouveauLivre");
 
         return livreService.enregistrerNouveauLivre(livreDto);

@@ -1,6 +1,6 @@
 package org.ludo.bibliotheque.service;
 
-import org.ludo.bibliotheque.dto.EmpruntDto;
+
 import org.ludo.bibliotheque.entities.Emprunt;
 import org.ludo.bibliotheque.entities.Livre;
 
@@ -13,9 +13,9 @@ public interface EmpruntService {
 
     Optional<Emprunt> findById(Long idEmprunt);
 
-    List<Emprunt> findAllByIdUtilisateur(Long idUtilisateur);
+    List<Emprunt> findAllByPseudoEmprunteur(String pseudoEmprunteur);
 
-    Emprunt ouvrirEmprunt(EmpruntDto empruntDto, Livre livre);
+    Emprunt ouvrirEmprunt(Emprunt emprunt, Long idLivre);
 
     Emprunt cloturerEmprunt(Long idEmprunt);
 }

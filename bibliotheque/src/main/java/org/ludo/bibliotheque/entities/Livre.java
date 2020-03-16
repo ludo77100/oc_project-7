@@ -1,6 +1,9 @@
 package org.ludo.bibliotheque.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
@@ -17,15 +20,15 @@ public class Livre {
     private String editeur ;
     private String decription ;
     private String isbn ;
-    private int NombrePages ;
+    private int nombrePages ;
     private int quantiteDispo ;
 
-    @NonNull
     @JsonManagedReference
-    @OneToMany(mappedBy = "idEmprunt", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "idEmprunt")
     private Collection<Emprunt> emprunt;
 
     public Livre() {
+        super();
     }
 
     public Livre(Long idLivre, String titre, String auteur, String editeur, String decription, String isbn, int nombrePages, int quantiteDispo, Collection<Emprunt> emprunt) {
@@ -35,7 +38,7 @@ public class Livre {
         this.editeur = editeur;
         this.decription = decription;
         this.isbn = isbn;
-        NombrePages = nombrePages;
+        this.nombrePages = nombrePages;
         this.quantiteDispo = quantiteDispo;
         this.emprunt = emprunt;
     }
@@ -89,11 +92,11 @@ public class Livre {
     }
 
     public int getNombrePages() {
-        return NombrePages;
+        return nombrePages;
     }
 
     public void setNombrePages(int nombrePages) {
-        NombrePages = nombrePages;
+        this.nombrePages = nombrePages;
     }
 
     public int getQuantiteDispo() {
@@ -104,11 +107,12 @@ public class Livre {
         this.quantiteDispo = quantiteDispo;
     }
 
+    @NonNull
     public Collection<Emprunt> getEmprunt() {
         return emprunt;
     }
 
-    public void setEmprunt(Collection<Emprunt> emprunt) {
+    public void setEmprunt(@NonNull Collection<Emprunt> emprunt) {
         this.emprunt = emprunt;
     }
 
@@ -121,7 +125,7 @@ public class Livre {
                 ", editeur='" + editeur + '\'' +
                 ", decription='" + decription + '\'' +
                 ", isbn='" + isbn + '\'' +
-                ", NombrePages=" + NombrePages +
+                ", nombrePages=" + nombrePages +
                 ", quantiteDispo=" + quantiteDispo +
                 ", emprunt=" + emprunt +
                 '}';

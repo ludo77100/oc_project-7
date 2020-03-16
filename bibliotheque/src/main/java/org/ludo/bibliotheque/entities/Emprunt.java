@@ -1,39 +1,41 @@
 package org.ludo.bibliotheque.entities;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class Emprunt {
+public class Emprunt implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idEmprunt;
-    private Long idUtilisateur ;
+    private String pseudoEmprunteur ;
     private Date dateDebut;
     private Date dateFin;
     private boolean prolongeable;
     private boolean enCours ;
 
-    @NonNull
     @ManyToOne
-   @JsonManagedReference
+    @JsonBackReference
+//    @JoinColumn(name = "id_livre")
     private Livre livre ;
 
     public Emprunt() {
+        super();
     }
 
-    public Emprunt(Long idEmprunt, Long idUtilisateur, Date dateDebut, Date dateFin, boolean prolongeable, boolean enCours, Livre livre) {
+    public Emprunt(Long idEmprunt, String pseudoEmprunteur, Date dateDebut, Date dateFin, boolean prolongeable, boolean enCours, @NonNull Livre livre) {
         this.idEmprunt = idEmprunt;
-        this.idUtilisateur = idUtilisateur;
+        this.pseudoEmprunteur = pseudoEmprunteur;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.prolongeable = prolongeable;
+        this.enCours = enCours;
         this.livre = livre;
-        this.enCours = enCours ;
     }
 
     public Long getIdEmprunt() {
@@ -44,12 +46,12 @@ public class Emprunt {
         this.idEmprunt = idEmprunt;
     }
 
-    public Long getIdUtilisateur() {
-        return idUtilisateur;
+    public String getPseudoEmprunteur() {
+        return pseudoEmprunteur;
     }
 
-    public void setIdUtilisateur(Long idUtilisateur) {
-        this.idUtilisateur = idUtilisateur;
+    public void setPseudoEmprunteur(String pseudoEmprunteur) {
+        this.pseudoEmprunteur = pseudoEmprunteur;
     }
 
     public Date getDateDebut() {
@@ -76,15 +78,7 @@ public class Emprunt {
         this.prolongeable = prolongeable;
     }
 
-    public Livre getLivre() {
-        return livre;
-    }
-
-    public void setLivre(Livre livre) {
-        this.livre = livre;
-    }
-
-    public boolean isEnCours(boolean b) {
+    public boolean isEnCours() {
         return enCours;
     }
 
@@ -92,11 +86,20 @@ public class Emprunt {
         this.enCours = enCours;
     }
 
+    @NonNull
+    public Livre getLivre() {
+        return livre;
+    }
+
+    public void setLivre(@NonNull Livre livre) {
+        this.livre = livre;
+    }
+
     @Override
     public String toString() {
         return "Emprunt{" +
                 "idEmprunt=" + idEmprunt +
-                ", idUtilisateur=" + idUtilisateur +
+                ", pseudoEmprunteur='" + pseudoEmprunteur + '\'' +
                 ", dateDebut=" + dateDebut +
                 ", dateFin=" + dateFin +
                 ", prolongeable=" + prolongeable +

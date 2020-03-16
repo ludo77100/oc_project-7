@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface EmpruntRepository extends JpaRepository<Emprunt, Long> {
 
-    List<Emprunt> findAllByIdUtilisateur(Long idUtilisateur);
+    List<Emprunt> findAllByPseudoEmprunteur(String pseudoEmprunteur);
 }

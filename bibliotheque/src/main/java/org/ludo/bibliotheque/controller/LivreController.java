@@ -4,7 +4,6 @@ import io.swagger.annotations.ApiOperation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.ludo.bibliotheque.BibliothequeApplication;
-import org.ludo.bibliotheque.dto.LivreDto;
 import org.ludo.bibliotheque.entities.Livre;
 import org.ludo.bibliotheque.service.LivreService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,28 +51,15 @@ public class LivreController {
 
     /**
      * Controlleur pour enregistrer un nouveau livre dans la base de données
-     * @param livreDto instance du livre à insérer
+     * @param livre instance du livre à insérer
      * @return enregistrement du nouveau livre
      */
     @ApiOperation(value = "Enregistre un nouveau livre en BDD")
     @PostMapping(value ="/livre/enregistrer")
-    public Livre enregistrerNouveauLivre(@RequestBody LivreDto livreDto, Livre livre){
+    public Livre enregistrerNouveauLivre(@RequestBody Livre livre){
         logger.debug("appel controlleur enregistrerNouveauLivre");
 
-        return livreService.enregistrerNouveauLivre(livreDto);
-    }
-
-    /**
-     * Controlleur pour modifier un livre dans la base de données
-     * @param livreDto instance du livre à modifier
-     * @return enregistrement des modifications du livre
-     */
-    @ApiOperation(value = "Enregistrer les modifications d'un livre")
-    @PutMapping(value = "/livre/edition")
-    public Livre editionLivre(@RequestBody LivreDto livreDto){
-        logger.debug("appel controlleur editionLivre");
-
-        return livreService.editionLivre(livreDto);
+        return livreService.enregistrerNouveauLivre(livre);
     }
 
     /**

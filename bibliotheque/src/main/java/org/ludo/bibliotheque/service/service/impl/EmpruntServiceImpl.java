@@ -1,7 +1,7 @@
 package org.ludo.bibliotheque.service.service.impl;
 
 import org.ludo.bibliotheque.dao.EmpruntRepository;
-import org.ludo.bibliotheque.dto.EmpruntDto;
+import org.ludo.bibliotheque.dao.LivreRepository;
 import org.ludo.bibliotheque.entities.Emprunt;
 import org.ludo.bibliotheque.entities.Livre;
 import org.ludo.bibliotheque.service.EmpruntService;
@@ -17,6 +17,8 @@ public class EmpruntServiceImpl implements EmpruntService {
 
     @Autowired
     EmpruntRepository empruntRepository ;
+    @Autowired
+    LivreRepository livreRepository ;
 
     @Override
     public List<Emprunt> findAll() {
@@ -29,19 +31,20 @@ public class EmpruntServiceImpl implements EmpruntService {
     }
 
     @Override
-    public List<Emprunt> findAllByIdUtilisateur(Long idUtilisateur) {
-        return empruntRepository.findAllByIdUtilisateur(idUtilisateur);
+    public List<Emprunt> findAllByPseudoEmprunteur(String pseudoEmprunteur) {
+        return empruntRepository.findAllByPseudoEmprunteur(pseudoEmprunteur);
     }
 
     @Override
-    public Emprunt ouvrirEmprunt(EmpruntDto empruntDto, Livre livre) {
+    public Emprunt ouvrirEmprunt(Emprunt emprunt, Long idLivre) {
 
         Emprunt nouvelEmprunt = new Emprunt();
+        Livre livre = livreRepository.findById(idLivre).get();
 
-        nouvelEmprunt.setDateDebut(empruntDto.getDateDebut());
-        nouvelEmprunt.setDateFin(empruntDto.getDateFin());
-        nouvelEmprunt.setProlongeable(empruntDto.isProlongeable());
-        nouvelEmprunt.setIdUtilisateur(empruntDto.getIdUtilisateur());
+        nouvelEmprunt.getDateDebut();
+        nouvelEmprunt.getDateFin();
+        nouvelEmprunt.isProlongeable();
+        nouvelEmprunt.getPseudoEmprunteur();
         nouvelEmprunt.setLivre(livre);
         nouvelEmprunt.setEnCours(true);
 

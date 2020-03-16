@@ -1,5 +1,7 @@
 package org.ludo.clientui.beans;
 
+import java.util.Collection;
+
 public class LivreBean {
 
     private int idLivre ;
@@ -8,18 +10,20 @@ public class LivreBean {
     private String editeur ;
     private String decription ;
     private String isbn ;
-    private int NombrePages ;
+    private int nombrePages ;
     private int quantiteDispo ;
+    private Collection<EmpruntBean> emprunt;
 
-    public LivreBean(int idLivre, String titre, String auteur, String editeur, String decription, String isbn, int nombrePages, int quantiteDispo) {
+    public LivreBean(int idLivre, String titre, String auteur, String editeur, String decription, String isbn, int nombrePages, int quantiteDispo, Collection<EmpruntBean> emprunt) {
         this.idLivre = idLivre;
         this.titre = titre;
         this.auteur = auteur;
         this.editeur = editeur;
         this.decription = decription;
         this.isbn = isbn;
-        NombrePages = nombrePages;
+        this.nombrePages = nombrePages;
         this.quantiteDispo = quantiteDispo;
+        this.emprunt = emprunt;
     }
 
     public int getIdLivre() {
@@ -71,11 +75,11 @@ public class LivreBean {
     }
 
     public int getNombrePages() {
-        return NombrePages;
+        return nombrePages;
     }
 
     public void setNombrePages(int nombrePages) {
-        NombrePages = nombrePages;
+        this.nombrePages = nombrePages;
     }
 
     public int getQuantiteDispo() {
@@ -84,6 +88,14 @@ public class LivreBean {
 
     public void setQuantiteDispo(int quantiteDispo) {
         this.quantiteDispo = quantiteDispo;
+    }
+
+    public Collection<EmpruntBean> getEmprunt() {
+        return emprunt;
+    }
+
+    public void setEmprunt(Collection<EmpruntBean> emprunt) {
+        this.emprunt = emprunt;
     }
 
     @Override
@@ -95,8 +107,9 @@ public class LivreBean {
                 ", editeur='" + editeur + '\'' +
                 ", decription='" + decription + '\'' +
                 ", isbn='" + isbn + '\'' +
-                ", NombrePages=" + NombrePages +
+                ", nombrePages=" + nombrePages +
                 ", quantiteDispo=" + quantiteDispo +
+                ", emprunt=" + emprunt +
                 '}';
     }
 }

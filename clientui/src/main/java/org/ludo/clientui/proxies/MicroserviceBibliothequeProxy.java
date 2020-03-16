@@ -42,8 +42,8 @@ public interface MicroserviceBibliothequeProxy {
     @GetMapping(value = "/emprunt/{idEmprunt}")
     EmpruntBean findById(@RequestParam Long idEmprunt);
 
-    @GetMapping(value = "/emprunt/{idUtilisateur}")
-    public List<EmpruntBean> listeEmpruntUtilisateur(@RequestParam Long idUtilisateur);
+    @GetMapping(value = "/emprunt/{pseudoEmprunteur}")
+    public List<EmpruntBean> listeEmpruntUtilisateur(@RequestParam String pseudoEmprunteur);
 
 /*    @PostMapping(value = "/emprunt/")
     public EmpruntBean ouvrirEmprunt(@RequestBody EmpruntDto empruntDto, Livre livre);*/

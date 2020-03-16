@@ -1,9 +1,7 @@
 package org.ludo.bibliotheque.controller;
 
 import io.swagger.annotations.ApiOperation;
-import org.ludo.bibliotheque.dto.EmpruntDto;
 import org.ludo.bibliotheque.entities.Emprunt;
-import org.ludo.bibliotheque.entities.Livre;
 import org.ludo.bibliotheque.service.EmpruntService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,15 +28,15 @@ public class EmpruntController {
     }
 
     @ApiOperation(value = "Pour lister les emprunts pour un utlisateur")
-    @GetMapping(value = "/emprunt/{idUtilisateur}")
-    public List<Emprunt> listeEmpruntUtilisateur(@RequestParam Long idUtilisateur){
-        return empruntService.findAllByIdUtilisateur(idUtilisateur) ;
+    @GetMapping(value = "/emprunt/{pseudoEmprunteur}")
+    public List<Emprunt> listeEmpruntUtilisateur(@RequestParam String pseudoEmprunteur){
+        return empruntService.findAllByPseudoEmprunteur(pseudoEmprunteur) ;
     }
 
     @ApiOperation(value = "Pour ouvrir un emprunt")
-    @PostMapping(value = "/emprunt/")
-    public Emprunt ouvrirEmprunt(@RequestBody EmpruntDto empruntDto, Livre livre){
-        return empruntService.ouvrirEmprunt(empruntDto, livre);
+    @PostMapping(value = "/emprunt/{idLivre}")
+    public Emprunt ouvrirEmprunt(@RequestBody Emprunt emprunt, @PathVariable Long idLivre){
+        return empruntService.ouvrirEmprunt(emprunt, idLivre);
     }
 
     @ApiOperation(value = "Permet de de cloturer un emprunt")

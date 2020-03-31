@@ -1,6 +1,7 @@
 package org.ludo.bibliotheque.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
@@ -20,8 +21,8 @@ public class Emprunt implements Serializable {
     private boolean enCours ;
 
     @ManyToOne
-    @JsonBackReference
-//    @JoinColumn(name = "id_livre")
+    @JsonManagedReference
+    @JoinColumn(name = "id_livre")
     private Livre livre ;
 
     public Emprunt() {

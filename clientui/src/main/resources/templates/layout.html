@@ -37,7 +37,7 @@
 
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" th:href=@{/}>Accueil</a>
+        <a class="navbar-brand" th:href="@{/}">Accueil</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -53,7 +53,7 @@
             <ul class="navbar-nav navbar-expand-lg ml-auto">
                 <li sec:authorize="isAuthenticated()" class="nav-item">Bienvenue: [[${#httpServletRequest.remoteUser}]]</li>
                 <li sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link" >Mes infos personnelles</a></li>
-                <li sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link" >Mes emprûnts</a></li>
+                <li sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link" th:href="@{/emprunt/utilisateur}">Mes emprûnts</a></li>
                 <li sec:authorize="!isAuthenticated()" class="nav-item"><a class="btn btn-info" th:href="@{/connexion}">Inscription/Connexion</a></li>
                 <li sec:authorize="isAuthenticated()" class="nav-item"><form th:action="@{/logout}" method="post"><input type="submit" class="btn btn-info" value="Se déconnecter" /></form></li>
             </ul>

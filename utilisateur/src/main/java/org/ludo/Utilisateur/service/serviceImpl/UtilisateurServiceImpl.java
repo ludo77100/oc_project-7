@@ -54,6 +54,8 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
         Utilisateur modificationUtilisateur = utilisateurRepository.findByPseudo(pseudo);
 
+        modificationUtilisateur.getUserRoleList().clear();
+
         modificationUtilisateur.grantAuthority(RoleEnum.UTILISATEUR);
         modificationUtilisateur.grantAuthority(RoleEnum.BIBLIOTHEQUAIRE);
 
@@ -65,6 +67,10 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
         Utilisateur modificationUtilisateur = utilisateurRepository.findByPseudo(pseudo);
 
+        modificationUtilisateur.getUserRoleList().clear();
+
+        modificationUtilisateur.grantAuthority(RoleEnum.UTILISATEUR);
+        modificationUtilisateur.grantAuthority(RoleEnum.BIBLIOTHEQUAIRE);
         modificationUtilisateur.grantAuthority(RoleEnum.ADMIN);
 
         return utilisateurRepository.save(modificationUtilisateur);

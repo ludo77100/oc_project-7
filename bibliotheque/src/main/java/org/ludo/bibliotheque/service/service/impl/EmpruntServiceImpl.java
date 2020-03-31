@@ -8,6 +8,7 @@ import org.ludo.bibliotheque.service.EmpruntService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -36,17 +37,26 @@ public class EmpruntServiceImpl implements EmpruntService {
     }
 
     @Override
-    public Emprunt ouvrirEmprunt(Emprunt emprunt, Long idLivre) {
+    public Date ajouter4Semaines(Date date){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DATE, 28);
+        return calendar.getTime();
+    }
+
+    @Override
+    public Emprunt ouvrirEmprunt(Long idLivre, String pseudoEmprunteur) {
 
         Emprunt nouvelEmprunt = new Emprunt();
         Livre livre = livreRepository.findById(idLivre).get();
+        Date date = new Date();
 
-        nouvelEmprunt.getDateDebut();
-        nouvelEmprunt.getDateFin();
-        nouvelEmprunt.isProlongeable();
-        nouvelEmprunt.getPseudoEmprunteur();
+        nouvelEmprunt.setDateDebut(date);
+        nouvelEmprunt.setDateFin(ajouter4Semaines(date));
+        nouvelEmprunt.setPseudoEmprunteur(pseudoEmprunteur);
         nouvelEmprunt.setLivre(livre);
         nouvelEmprunt.setEnCours(true);
+        nouvelEmprunt.setProlongeable(true);
 
         return empruntRepository.save(nouvelEmprunt);
     }

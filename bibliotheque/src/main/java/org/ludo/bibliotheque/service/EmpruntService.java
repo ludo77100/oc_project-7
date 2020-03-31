@@ -4,6 +4,7 @@ package org.ludo.bibliotheque.service;
 import org.ludo.bibliotheque.entities.Emprunt;
 import org.ludo.bibliotheque.entities.Livre;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,7 +16,10 @@ public interface EmpruntService {
 
     List<Emprunt> findAllByPseudoEmprunteur(String pseudoEmprunteur);
 
-    Emprunt ouvrirEmprunt(Emprunt emprunt, Long idLivre);
+    Emprunt ouvrirEmprunt(Long idLivre, String pseudoEmprunteur);
 
     Emprunt cloturerEmprunt(Long idEmprunt);
+
+    Date ajouter4Semaines(Date date);
+
 }

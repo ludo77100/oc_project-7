@@ -37,6 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception{
         httpSecurity
                 .authorizeRequests()
+
                 .anyRequest().permitAll()
                 .and()
                 .formLogin().loginPage("/connexion")
@@ -52,5 +53,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .sessionManagement().maximumSessions(1).expiredUrl("/connexion");
     }
-
 }

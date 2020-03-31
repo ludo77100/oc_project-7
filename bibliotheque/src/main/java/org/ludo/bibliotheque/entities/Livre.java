@@ -1,9 +1,6 @@
 package org.ludo.bibliotheque.entities;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
@@ -23,8 +20,8 @@ public class Livre {
     private int nombrePages ;
     private int quantiteDispo ;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "idEmprunt")
+    @JsonBackReference
+    @OneToMany(mappedBy = "livre")
     private Collection<Emprunt> emprunt;
 
     public Livre() {

@@ -67,6 +67,14 @@ public class Utilisateur {
         userRoleList.add(authority);
     }
 
+    public List<RoleEnum> getUserRoleList() {
+        return userRoleList;
+    }
+
+    public void setUserRoleList(List<RoleEnum> userRoleList) {
+        this.userRoleList = userRoleList;
+    }
+
     @Override
     public String toString() {
         return "Utilisateur{" +

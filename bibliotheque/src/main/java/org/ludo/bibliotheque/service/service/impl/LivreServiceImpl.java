@@ -29,13 +29,13 @@ public class LivreServiceImpl implements LivreService {
 
         Livre nouveauLivre = new Livre() ;
 
-        nouveauLivre.getAuteur();
-        nouveauLivre.getDecription();
-        nouveauLivre.getEditeur();
-        nouveauLivre.getIsbn();
-        nouveauLivre.getNombrePages();
-        nouveauLivre.getQuantiteDispo();
-        nouveauLivre.getTitre();
+        nouveauLivre.setAuteur(livre.getAuteur());
+        nouveauLivre.setDecription(livre.getDecription());
+        nouveauLivre.setEditeur(livre.getEditeur());
+        nouveauLivre.setIsbn(livre.getIsbn());
+        nouveauLivre.setNombrePages(livre.getNombrePages());
+        nouveauLivre.setQuantiteDispo(livre.getQuantiteDispo());
+        nouveauLivre.setTitre(livre.getTitre());
 
         return livreRepository.save(nouveauLivre);
     }

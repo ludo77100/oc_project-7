@@ -21,17 +21,9 @@ public interface MicroserviceBibliothequeProxy {
     @GetMapping(value = "/listeRecherche")
     List<LivreBean> listeLivreRecherche(@RequestParam(name = "mc")String mc);
 
-/*    @PostMapping(value ="/livre/enregistrer")
-    public LivreBean enregistrerNouveauLivre(@RequestBody LivreDto livreDto, Livre livre);
-
-    @PutMapping(value = "/livre/edition")
-    public LivreBean editionLivre(@RequestBody LivreDto livreDto);*/
-
-    @GetMapping(value = "/livre/supprimer")
-    public void supprimerLivre(Long idLivre);
 
     /*
-    **************
+    *************
     APIs Emprunt
     **************
      */
@@ -39,14 +31,11 @@ public interface MicroserviceBibliothequeProxy {
     @GetMapping(value = "/listeEmprunt")
     List<EmpruntBean> listeEmprunt();
 
-    @GetMapping(value = "/emprunt/{idEmprunt}")
+    @GetMapping(value = "/emprunt/id/{idEmprunt}")
     EmpruntBean findById(@RequestParam Long idEmprunt);
 
-    @GetMapping(value = "/emprunt/{pseudoEmprunteur}")
-    public List<EmpruntBean> listeEmpruntUtilisateur(@RequestParam String pseudoEmprunteur);
-
-/*    @PostMapping(value = "/emprunt/")
-    public EmpruntBean ouvrirEmprunt(@RequestBody EmpruntDto empruntDto, Livre livre);*/
+    @GetMapping(value = "/emprunt/pseudo/{pseudoEmprunteur}")
+    public List<EmpruntBean> listeEmpruntUtilisateur(@PathVariable("pseudoEmprunteur") String pseudoEmprunteur);
 
     @PutMapping(value = "emprunt/{idEmprunt}")
     public EmpruntBean cloturerEmprunt(@RequestParam Long idEmprunt);

@@ -19,6 +19,7 @@ public class LivreController {
     public String index(Model model){
         List<LivreBean> listeLivres = livresProxy.listeLivre();
         model.addAttribute("listeLivresBean", listeLivres);
+        System.out.println(listeLivres);
         return "index";
     }
 

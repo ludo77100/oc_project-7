@@ -15,8 +15,11 @@
     <div class="container">
         <div class="card" th:each="leu:${listeEmpruntsUtilisateur}">
             <div class="card-img-top">#######</div>
-            <div class="card-header" th:text="${leu.getLivreBean().titre}"></div>
-            <div class="card-body"></div>
+            <div class="card-header" th:text="${leu.livre.titre}"></div>
+            <div class="card-body"><ul>
+                <li th:text="${#dates.format(leu.dateDebut, 'dd/MM/yyyy')}"></li>
+                <li th:text="${#dates.format(leu.dateFin, 'dd/MM/yyyy')}"></li>
+            </ul></div>
             <div class="card-footer"><button class="btn btn-primary">Prolonger</button> </div>
         </div>
     </div>

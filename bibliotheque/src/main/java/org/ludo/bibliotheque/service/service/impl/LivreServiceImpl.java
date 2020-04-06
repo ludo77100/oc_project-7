@@ -36,6 +36,7 @@ public class LivreServiceImpl implements LivreService {
         nouveauLivre.setNombrePages(livre.getNombrePages());
         nouveauLivre.setQuantiteDispo(livre.getQuantiteDispo());
         nouveauLivre.setTitre(livre.getTitre());
+        nouveauLivre.setUrlImage(livre.getUrlImage());
 
         return livreRepository.save(nouveauLivre);
     }

@@ -14,7 +14,7 @@
 <div layout:fragment="content">
     <div class="container">
         <div class="card" th:each="leu:${listeEmpruntsUtilisateur}">
-            <div class="card-img-top">#######</div>
+            <div class="card-img-top"><img th:src="${leu.livre.urlImage}"></div>
             <div class="card-header" th:text="${leu.livre.titre}"></div>
             <div class="card-body"><ul>
                 <li th:text="${#dates.format(leu.dateDebut, 'dd/MM/yyyy')}"></li>

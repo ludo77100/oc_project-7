@@ -20,8 +20,7 @@ public class Emprunt implements Serializable {
     private boolean prolongeable;
     private boolean enCours ;
 
-    @ManyToOne
-    @JsonManagedReference
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_livre")
     private Livre livre ;
 
@@ -29,7 +28,7 @@ public class Emprunt implements Serializable {
         super();
     }
 
-    public Emprunt(Long idEmprunt, String pseudoEmprunteur, Date dateDebut, Date dateFin, boolean prolongeable, boolean enCours, @NonNull Livre livre) {
+    public Emprunt(Long idEmprunt, String pseudoEmprunteur, Date dateDebut, Date dateFin, boolean prolongeable, boolean enCours, Livre livre) {
         this.idEmprunt = idEmprunt;
         this.pseudoEmprunteur = pseudoEmprunteur;
         this.dateDebut = dateDebut;
@@ -87,12 +86,11 @@ public class Emprunt implements Serializable {
         this.enCours = enCours;
     }
 
-    @NonNull
     public Livre getLivre() {
         return livre;
     }
 
-    public void setLivre(@NonNull Livre livre) {
+    public void setLivre(Livre livre) {
         this.livre = livre;
     }
 

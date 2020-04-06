@@ -4,10 +4,12 @@ import com.fasterxml.jackson.annotation.*;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collection;
+import java.util.Set;
 
 @Entity
-public class Livre {
+public class Livre implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,16 +21,17 @@ public class Livre {
     private String isbn ;
     private int nombrePages ;
     private int quantiteDispo ;
+    private String urlImage ;
 
-    @JsonBackReference
-    @OneToMany(mappedBy = "livre")
-    private Collection<Emprunt> emprunt;
+    @JsonIgnore
+    @OneToMany(mappedBy = "livre", fetch = FetchType.LAZY)
+    private Set<Emprunt> emprunt;
 
     public Livre() {
         super();
     }
 
-    public Livre(Long idLivre, String titre, String auteur, String editeur, String decription, String isbn, int nombrePages, int quantiteDispo, Collection<Emprunt> emprunt) {
+    public Livre(Long idLivre, String titre, String auteur, String editeur, String decription, String isbn, int nombrePages, int quantiteDispo, Set<Emprunt> emprunt, String urlImage) {
         this.idLivre = idLivre;
         this.titre = titre;
         this.auteur = auteur;
@@ -38,6 +41,7 @@ public class Livre {
         this.nombrePages = nombrePages;
         this.quantiteDispo = quantiteDispo;
         this.emprunt = emprunt;
+        this.urlImage = urlImage;
     }
 
     public Long getIdLivre() {
@@ -104,13 +108,20 @@ public class Livre {
         this.quantiteDispo = quantiteDispo;
     }
 
-    @NonNull
-    public Collection<Emprunt> getEmprunt() {
+    public Set<Emprunt> getEmprunt() {
         return emprunt;
     }
 
-    public void setEmprunt(@NonNull Collection<Emprunt> emprunt) {
+    public void setEmprunt(Set<Emprunt> emprunt) {
         this.emprunt = emprunt;
+    }
+
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
     }
 
     @Override
@@ -124,6 +135,7 @@ public class Livre {
                 ", isbn='" + isbn + '\'' +
                 ", nombrePages=" + nombrePages +
                 ", quantiteDispo=" + quantiteDispo +
+                ", urlImage='" + urlImage + '\'' +
                 ", emprunt=" + emprunt +
                 '}';
     }

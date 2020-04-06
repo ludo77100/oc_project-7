@@ -12,9 +12,10 @@ public class LivreBean {
     private String isbn ;
     private int nombrePages ;
     private int quantiteDispo ;
+    private String urlImage ;
     private Collection<EmpruntBean> emprunt;
 
-    public LivreBean(int idLivre, String titre, String auteur, String editeur, String decription, String isbn, int nombrePages, int quantiteDispo, Collection<EmpruntBean> emprunt) {
+    public LivreBean(int idLivre, String titre, String auteur, String editeur, String decription, String isbn, int nombrePages, int quantiteDispo, Collection<EmpruntBean> emprunt, String urlImage) {
         this.idLivre = idLivre;
         this.titre = titre;
         this.auteur = auteur;
@@ -24,6 +25,7 @@ public class LivreBean {
         this.nombrePages = nombrePages;
         this.quantiteDispo = quantiteDispo;
         this.emprunt = emprunt;
+        this.urlImage = urlImage;
     }
 
     public int getIdLivre() {
@@ -98,6 +100,14 @@ public class LivreBean {
         this.emprunt = emprunt;
     }
 
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
+    }
+
     @Override
     public String toString() {
         return "LivreBean{" +
@@ -109,6 +119,7 @@ public class LivreBean {
                 ", isbn='" + isbn + '\'' +
                 ", nombrePages=" + nombrePages +
                 ", quantiteDispo=" + quantiteDispo +
+                ", urlImage='" + urlImage + '\'' +
                 ", emprunt=" + emprunt +
                 '}';
     }

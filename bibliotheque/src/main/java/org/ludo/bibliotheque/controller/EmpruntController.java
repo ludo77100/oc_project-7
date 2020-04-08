@@ -6,6 +6,7 @@ import org.ludo.bibliotheque.service.EmpruntService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +32,11 @@ public class EmpruntController {
     @GetMapping(value = "/emprunt/pseudo/{pseudoEmprunteur}")
     public List<Emprunt> listeEmpruntUtilisateur(@PathVariable("pseudoEmprunteur") String pseudoEmprunteur){
         return empruntService.findAllByPseudoEmprunteur(pseudoEmprunteur) ;
+    }
+
+    @PutMapping(value = "/emprunt/prolonger/{idEmprunt}")
+    public Emprunt prolongerEmprunt(@PathVariable("idEmprunt")Long idEmprunt){
+        return empruntService.prolongerEmprunt(idEmprunt);
     }
 
     @ApiOperation(value = "Pour ouvrir un emprunt")

@@ -22,4 +22,6 @@ public interface EmpruntService {
 
     Date ajouter4Semaines(Date date);
 
+    Emprunt prolongerEmprunt(Long idEmprunt);
+
 }

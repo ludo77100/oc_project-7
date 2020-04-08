@@ -38,10 +38,27 @@ public class EmpruntServiceImpl implements EmpruntService {
 
     @Override
     public Date ajouter4Semaines(Date date){
+
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.add(Calendar.DATE, 28);
         return calendar.getTime();
+    }
+
+    @Override
+    public Emprunt prolongerEmprunt(Long idEmprunt) {
+
+        Emprunt emprunt = empruntRepository.findById(idEmprunt).get();
+
+        Date dateDebut = emprunt.getDateFin();
+
+        if (emprunt.isProlongeable() == true && emprunt.isEnCours() == true) {
+            emprunt.setDateFin(ajouter4Semaines(dateDebut));
+            emprunt.setProlongeable(false);
+        } else {
+            return emprunt ;
+        }
+        return empruntRepository.save(emprunt);
     }
 
     @Override

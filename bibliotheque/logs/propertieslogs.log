@@ -388,3 +388,12 @@
 [DEBUG] 2020-04-08 16:20:18.873 [http-nio-8080-exec-1] BibliothequeApplication - Appel controlleur listeLivre
 [DEBUG] 2020-04-08 16:21:33.391 [http-nio-8080-exec-4] BibliothequeApplication - Appel controlleur listeLivre
 [DEBUG] 2020-04-08 16:23:17.270 [http-nio-8080-exec-2] BibliothequeApplication - Appel controlleur listeLivre
+[DEBUG] 2020-04-08 16:39:25.835 [main] BibliothequeApplication - Microservice Bibliothèque démarré
+[DEBUG] 2020-04-08 16:39:41.814 [http-nio-8080-exec-1] BibliothequeApplication - Appel controlleur listeLivre
+[DEBUG] 2020-04-08 16:39:58.755 [http-nio-8080-exec-2] BibliothequeApplication - Appel controlleur listeLivre
+[DEBUG] 2020-04-08 16:40:27.765 [http-nio-8080-exec-3] BibliothequeApplication - Appel controlleur listeLivre
+[DEBUG] 2020-04-08 16:51:14.382 [main] BibliothequeApplication - Microservice Bibliothèque démarré
+[DEBUG] 2020-04-08 16:51:40.077 [http-nio-8080-exec-9] BibliothequeApplication - Appel controlleur listeLivre
+[DEBUG] 2020-04-08 16:56:48.843 [main] BibliothequeApplication - Microservice Bibliothèque démarré
+[DEBUG] 2020-04-08 16:57:38.596 [main] BibliothequeApplication - Microservice Bibliothèque démarré
+[DEBUG] 2020-04-08 17:11:43.094 [main] BibliothequeApplication - Microservice Bibliothèque démarré

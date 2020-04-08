@@ -3,7 +3,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Liste livres</title>
 
     <link rel="stylesheet" type="text/css"
@@ -14,52 +14,60 @@
 <div layout:fragment="content">
     <div class="container-fluid">
         <div class="col-lg-12 row">
-<div class="col-lg-3 border">
+            <div class="col-lg-2 border">
 
 
-</div>
-        <div class="col-lg-9 border">
-        <form action="@{/listeSpot}" method="get">
-            <input type="search" name="mc" value="">
-            <button class="btn btn-primary">Chercher</button>
-        </form>
+            </div>
+            <div class="col-lg-10 border">
+                <form th:action="@{/listeRecherche}" method="get">
+                    <input type="search" name="mc" th:value="${mc}"/>
+                    <button class="btn btn-primary">Chercher</button>
+                </form>
 
-    <div class="row">
-        <div class="card border-dark spacer-line spacer" style="width: 269px;" th:each="ll:${listeLivresBean}">
-            <img class="card-img-top" th:src="${ll.urlImage}" alt="" width="269" height="435">
-            <div class="card-header text-white bg-dark"><h3 class="text-center" th:text="${ll.titre}"></h3></div>
-            <div class="card-body"><ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Auteur: </strong></li>
-                <li class="list-group-item text-right" th:text="${ll.auteur}"></li>
-                <li class="list-group-item"><strong>Quantité emprûntable: </strong></li>
-                <li class="list-group-item text-right" th:text="${ll.quantiteDispo}"></li>
-            </ul>
-                <div class="text-center spacer">
-                <button class="btn btn-primary" type="button" data-toggle="collapse" th:attr="data-target='#collapseExample_'+${ll.idLivre}" aria-expanded="false" aria-controls="collapseExample">
-                    Plus d'informations
-                </button>
-                </div>
-                <div class="collapse" th:id="'collapseExample_'+${ll.idLivre}">
-                    <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>Description: </strong></li>
-                    <li class="list-group-item" th:text="${ll.decription}"></li>
-                    <li class="list-group-item"><strong>Editeur: </strong></li>
-                    <li class="list-group-item text-right" th:text="${ll.editeur}"></li>
-                    <li class="list-group-item"><strong>Nombre de pages: </strong></li>
-                    <li class="list-group-item text-right" th:text="${ll.nombrePages}"></li>
-                    </ul>
-                    <div class="text-center spacer">
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" th:attr="data-target='#collapseExample_'+${ll.idLivre}" aria-expanded="false" aria-controls="collapseExample">
-                            Fermer informations
-                        </button>
+                <div class="row">
+                    <div class="card border-dark spacer-line spacer" style="width: 269px;"
+                         th:each="ll:${listeLivresBean}">
+                        <img class="card-img-top" th:src="${ll.urlImage}" alt="" width="269" height="435">
+                        <div class="card-header text-white bg-dark"><h3 class="text-center" th:text="${ll.titre}"></h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Auteur: </strong></li>
+                                <li class="list-group-item text-right" th:text="${ll.auteur}"></li>
+                                <li class="list-group-item"><strong>Quantité emprûntable: </strong></li>
+                                <li class="list-group-item text-right" th:text="${ll.quantiteDispo}"></li>
+                            </ul>
+                            <div class="text-center spacer">
+                                <button class="btn btn-primary" type="button" data-toggle="collapse"
+                                        th:attr="data-target='#collapseExample_'+${ll.idLivre}" aria-expanded="false"
+                                        aria-controls="collapseExample">
+                                    Plus d'informations
+                                </button>
+                            </div>
+                            <div class="collapse" th:id="'collapseExample_'+${ll.idLivre}">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><strong>Description: </strong></li>
+                                    <li class="list-group-item" th:text="${ll.decription}"></li>
+                                    <li class="list-group-item"><strong>Editeur: </strong></li>
+                                    <li class="list-group-item text-right" th:text="${ll.editeur}"></li>
+                                    <li class="list-group-item"><strong>Nombre de pages: </strong></li>
+                                    <li class="list-group-item text-right" th:text="${ll.nombrePages}"></li>
+                                </ul>
+                                <div class="text-center spacer">
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse"
+                                            th:attr="data-target='#collapseExample_'+${ll.idLivre}"
+                                            aria-expanded="false" aria-controls="collapseExample">
+                                        Fermer informations
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-    </div>
+            </div>
+
         </div>
     </div>
-        </div>
-        </div>
-    </div>
-    </div>
-    </body>
-    </html>
+</div>
+</body>
+</html>

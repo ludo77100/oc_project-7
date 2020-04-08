@@ -13,15 +13,29 @@
 <body>
 <div layout:fragment="content">
     <div class="container">
-        <div class="card" th:each="leu:${listeEmpruntsUtilisateur}">
-            <div class="card-img-top"><img th:src="${leu.livre.urlImage}"></div>
-            <div class="card-header" th:text="${leu.livre.titre}"></div>
-            <div class="card-body"><ul>
-                <li th:text="${#dates.format(leu.dateDebut, 'dd/MM/yyyy')}"></li>
-                <li th:text="${#dates.format(leu.dateFin, 'dd/MM/yyyy')}"></li>
-            </ul></div>
-            <div class="card-footer"><button class="btn btn-primary">Prolonger</button> </div>
+
+        <div class="row">
+            <div class="card border-dark spacer-line spacer" style="width: 269px;"
+                 th:each="leu:${listeEmpruntsUtilisateur}">
+                <img class="card-img-top" th:src="${leu.livre.urlImage}" alt="" width="269" height="435">
+                <div class="card-header text-white bg-dark"><h3 class="text-center" th:text="${leu.livre.titre}"></h3>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Date de début: </strong></li>
+                        <li class="list-group-item text-right" th:text="${#dates.format(leu.dateDebut, 'dd/MM/yyyy')}"></li>
+                        <li class="list-group-item"><strong>Date de fin: </strong></li>
+                        <li class="list-group-item text-right" th:text="${#dates.format(leu.dateFin, 'dd/MM/yyyy')}"></li>
+                    </ul>
+                    <div class="text-center spacer">
+                    <button class="btn btn-primary">Prolonger</button>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
     </div>
     </div>
     </body>

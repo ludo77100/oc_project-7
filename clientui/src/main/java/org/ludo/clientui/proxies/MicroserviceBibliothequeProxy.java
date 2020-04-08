@@ -39,4 +39,8 @@ public interface MicroserviceBibliothequeProxy {
 
     @PutMapping(value = "emprunt/{idEmprunt}")
     public EmpruntBean cloturerEmprunt(@RequestParam Long idEmprunt);
+
+    @PutMapping(value = "/emprunt/prolonger/{idEmprunt}")
+    public EmpruntBean prolongerEmprunt(@PathVariable("idEmprunt")Long idEmprunt);
+
 }

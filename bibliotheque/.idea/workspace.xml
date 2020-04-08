@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="372f1751-64fe-4263-b574-a4fb014f7d35" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/propertieslogs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/propertieslogs.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ludo/bibliotheque/controller/EmpruntController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ludo/bibliotheque/controller/EmpruntController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ludo/bibliotheque/service/EmpruntService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ludo/bibliotheque/service/EmpruntService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ludo/bibliotheque/service/service/impl/EmpruntServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ludo/bibliotheque/service/service/impl/EmpruntServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clientui/src/main/java/org/ludo/clientui/controller/EmpruntController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../clientui/src/main/java/org/ludo/clientui/controller/EmpruntController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clientui/src/main/java/org/ludo/clientui/proxies/MicroserviceBibliothequeProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../clientui/src/main/java/org/ludo/clientui/proxies/MicroserviceBibliothequeProxy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +142,7 @@
       <workItem from="1584688534580" duration="3313000" />
       <workItem from="1585125103003" duration="34902000" />
       <workItem from="1586165414550" duration="8875000" />
-      <workItem from="1586329220331" duration="11754000" />
+      <workItem from="1586329220331" duration="12357000" />
     </task>
     <task id="LOCAL-00001" summary="Début du projet">
       <created>1583247696587</created>
@@ -215,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586355911341</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Ajout de la prolongation d'un Emprunt">
+      <created>1586358862971</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1586358862971</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,7 +240,8 @@
     <MESSAGE value="Ajout mise en page catalogue" />
     <MESSAGE value="Ajout de la recherche par titre de livre sur le catalogue" />
     <MESSAGE value="Mise en page de la liste des emprunt pour un utilisateur" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mise en page de la liste des emprunt pour un utilisateur" />
+    <MESSAGE value="Ajout de la prolongation d'un Emprunt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout de la prolongation d'un Emprunt" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2472" y="172" key="#Assign_Data_Sources" timestamp="1583244810585">
@@ -284,10 +291,10 @@
       <screen x="1920" y="-6" width="1920" height="1040" />
     </state>
     <state x="2610" y="261" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/3840.701.1366.728/1920.-6.1920.1040/0.0.1920.1040@1920.-6.1920.1040" timestamp="1583507369405" />
-    <state x="551" y="114" key="CommitChangelistDialog2" timestamp="1586355910702">
+    <state x="551" y="114" key="CommitChangelistDialog2" timestamp="1586358862281">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="551" y="114" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586355910702" />
+    <state x="551" y="114" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586358862281" />
     <state x="551" y="114" key="CommitChangelistDialog2/3840.701.1366.728/0.0.1920.1040/1920.-6.1920.1040@0.0.1920.1040" timestamp="1583739807872" />
     <state x="2471" y="108" key="CommitChangelistDialog2/3840.701.1366.728/0.0.1920.1040/1920.-6.1920.1040@1920.-6.1920.1040" timestamp="1583309993062" />
     <state x="2471" y="108" key="CommitChangelistDialog2/3840.701.1366.728/1920.-6.1920.1040/0.0.1920.1040@1920.-6.1920.1040" timestamp="1583505307644" />

@@ -34,6 +34,7 @@ public class EmpruntController {
         return empruntService.findAllByPseudoEmprunteur(pseudoEmprunteur) ;
     }
 
+    @ApiOperation(value = "Permet de prolonger un prêt de 4 semaines")
     @PutMapping(value = "/emprunt/prolonger/{idEmprunt}")
     public Emprunt prolongerEmprunt(@PathVariable("idEmprunt")Long idEmprunt){
         return empruntService.prolongerEmprunt(idEmprunt);

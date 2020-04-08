@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 
 
 import java.util.List;
@@ -29,6 +30,12 @@ public class EmpruntController {
         model.addAttribute("listeEmpruntsUtilisateur", listeEmpruntsUtilisateur);
 
         return "/listeEmprunts" ;
+    }
+
+    @PutMapping(value = "/emprunt/prolonger/{idEmprunt}")
+    public String prolongerEmprunt(@PathVariable("idEmprunt")Long idEmprunt){
+        empruntProxy.prolongerEmprunt(idEmprunt);
+        return "redirect:/emprunt/utilisateur";
     }
 
 }

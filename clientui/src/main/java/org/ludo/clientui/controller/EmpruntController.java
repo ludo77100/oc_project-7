@@ -32,10 +32,9 @@ public class EmpruntController {
         return "/listeEmprunts" ;
     }
 
-    @PutMapping(value = "/emprunt/prolonger/{idEmprunt}")
+    @GetMapping(value = "/emprunt/prolonger/{idEmprunt}")
     public String prolongerEmprunt(@PathVariable("idEmprunt")Long idEmprunt){
         empruntProxy.prolongerEmprunt(idEmprunt);
         return "redirect:/emprunt/utilisateur";
     }
-
 }

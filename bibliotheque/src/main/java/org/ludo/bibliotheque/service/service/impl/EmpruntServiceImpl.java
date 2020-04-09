@@ -33,7 +33,7 @@ public class EmpruntServiceImpl implements EmpruntService {
 
     @Override
     public List<Emprunt> findAllByPseudoEmprunteur(String pseudoEmprunteur) {
-        return empruntRepository.findAllByPseudoEmprunteur(pseudoEmprunteur);
+        return empruntRepository.findAllByPseudoEmprunteurAndEnCoursIsTrue(pseudoEmprunteur);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class EmpruntServiceImpl implements EmpruntService {
             emprunt.setDateFin(ajouter4Semaines(dateDebut));
             emprunt.setProlongeable(false);
         } else {
-            return emprunt ;
+            return null ;
         }
         return empruntRepository.save(emprunt);
     }

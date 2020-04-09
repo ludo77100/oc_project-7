@@ -1,9 +1,12 @@
 package org.ludo.bibliotheque.controller;
 
 import io.swagger.annotations.ApiOperation;
+import org.ludo.bibliotheque.dao.EmpruntRepository;
 import org.ludo.bibliotheque.entities.Emprunt;
 import org.ludo.bibliotheque.service.EmpruntService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -36,8 +39,18 @@ public class EmpruntController {
 
     @ApiOperation(value = "Permet de prolonger un prêt de 4 semaines")
     @PutMapping(value = "/emprunt/prolonger/{idEmprunt}")
-    public Emprunt prolongerEmprunt(@PathVariable("idEmprunt")Long idEmprunt){
-        return empruntService.prolongerEmprunt(idEmprunt);
+    public ResponseEntity<Emprunt> prolongerEmprunt(@PathVariable("idEmprunt")Long idEmprunt){
+
+        Emprunt emprunt = empruntService.prolongerEmprunt(idEmprunt);
+
+        if (emprunt != null){
+            return ResponseEntity.ok(emprunt);
+        }
+
+        return new ResponseEntity(
+                "Ne peut pas être prolongé",
+                HttpStatus.BAD_REQUEST);
+        
     }
 
     @ApiOperation(value = "Pour ouvrir un emprunt")

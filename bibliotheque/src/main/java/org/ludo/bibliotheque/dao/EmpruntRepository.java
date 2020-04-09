@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface EmpruntRepository extends JpaRepository<Emprunt, Long> {
 
-    List<Emprunt> findAllByPseudoEmprunteur(String pseudoEmprunteur);
+    List<Emprunt> findAllByPseudoEmprunteurAndEnCoursIsTrue(String pseudoEmprunteur);
 }

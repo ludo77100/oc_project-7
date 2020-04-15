@@ -46,11 +46,9 @@ public class EmpruntController {
         if (emprunt != null){
             return ResponseEntity.ok(emprunt);
         }
-
         return new ResponseEntity(
                 "Ne peut pas être prolongé",
                 HttpStatus.BAD_REQUEST);
-        
     }
 
     @ApiOperation(value = "Pour ouvrir un emprunt")

@@ -22,7 +22,9 @@ public class UtilisateurController {
         return utilisateurService.findAll();
     }
 
-    @ApiOperation(value = "Pour d'identifier")
+
+
+    @ApiOperation(value = "Pour s'identifier")
     @GetMapping(value = "/utilisateur/{pseudo}")
     public Utilisateur login(@PathVariable String pseudo){
         Utilisateur utilisateur = utilisateurService.findByPseudo(pseudo);

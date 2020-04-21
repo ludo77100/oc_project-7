@@ -62,6 +62,13 @@ public class EmpruntServiceImpl implements EmpruntService {
     }
 
     @Override
+    public List<Emprunt> listeLivreNonRendueApresDateFin() {
+        Date dateDuJour = new Date();
+        List<Emprunt> listeEmprunt = empruntRepository.findAllByEnCoursFalseAndDateFinBefore(dateDuJour);
+        return listeEmprunt;
+    }
+
+    @Override
     public Emprunt ouvrirEmprunt(Long idLivre, String pseudoEmprunteur) {
 
         Emprunt nouvelEmprunt = new Emprunt();

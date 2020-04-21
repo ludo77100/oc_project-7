@@ -63,4 +63,11 @@ public class EmpruntController {
         return empruntService.cloturerEmprunt(idEmprunt);
     }
 
+
+    @ApiOperation(value = "Pour retourner une liste de livre non rendue avant la date de fin d'emprunt")
+    @GetMapping(value = "/emprunt")
+    public List<Emprunt> listeLivreNonRendueApresDateFin(){
+        return empruntService.listeLivreNonRendueApresDateFin();
+    }
+
 }

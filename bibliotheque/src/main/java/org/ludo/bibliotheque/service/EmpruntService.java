@@ -24,4 +24,6 @@ public interface EmpruntService {
 
     Emprunt prolongerEmprunt(Long idEmprunt);
 
+    List<Emprunt> listeLivreNonRendueApresDateFin();
+
 }

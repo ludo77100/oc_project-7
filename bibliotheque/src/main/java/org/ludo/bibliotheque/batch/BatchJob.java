@@ -14,10 +14,11 @@ public class BatchJob {
     @Autowired
     EmailService emailService ;
 
-    @Scheduled(cron = "0 */1 * * * *")
+    @Scheduled(cron = "0 14 * * *")
     public void lendingRevival() throws Exception {
-        System.out.println("TEST");
+
         emailService.envoyerEmailRelance();
+
     }
 
 

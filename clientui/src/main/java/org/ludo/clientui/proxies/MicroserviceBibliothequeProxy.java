@@ -21,6 +21,8 @@ public interface MicroserviceBibliothequeProxy {
     @GetMapping(value = "/listeRecherche")
     List<LivreBean> listeLivreRecherche(@RequestParam(name = "mc")String mc);
 
+    @GetMapping(value = "/livre/{idLivre}")
+    LivreBean findLivreById(@PathVariable("idLivre")Long idLidvre);
 
     /*
     *************

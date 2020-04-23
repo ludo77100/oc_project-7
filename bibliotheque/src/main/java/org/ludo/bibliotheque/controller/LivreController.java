@@ -50,6 +50,12 @@ public class LivreController {
         return livreService.findByTitreContainingIgnoreCase(mc);
     }
 
+    @ApiOperation(value = "Pour trouver un livre par son id")
+    @GetMapping(value = "/livre/{idLivre}")
+    public Livre findById(@PathVariable("idLivre")Long idLidvre){
+        return livreService.findLivreById(idLidvre);
+    }
+
     /**
      * Controlleur pour enregistrer un nouveau livre dans la base de données
      * @param livre instance du livre à insérer

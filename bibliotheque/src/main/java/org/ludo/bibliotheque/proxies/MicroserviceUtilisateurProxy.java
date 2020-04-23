@@ -20,5 +20,4 @@ public interface MicroserviceUtilisateurProxy {
     @PutMapping(value = "/utilisateur/{pseudo}/{privilege}")
     public UtilisateurBean modificationPrivilege(@PathVariable String pseudo, @PathVariable String privilege);
 
-
 }

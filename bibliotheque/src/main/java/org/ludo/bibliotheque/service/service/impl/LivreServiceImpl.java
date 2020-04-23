@@ -25,6 +25,11 @@ public class LivreServiceImpl implements LivreService {
     }
 
     @Override
+    public Livre findLivreById(Long idLidvre) {
+        return livreRepository.findById(idLidvre).get();
+    }
+
+    @Override
     public Livre enregistrerNouveauLivre(Livre livre) {
 
         Livre nouveauLivre = new Livre() ;
@@ -46,4 +51,6 @@ public class LivreServiceImpl implements LivreService {
     public void supprimerLivre(Long idLivre) {
         livreRepository.deleteById(idLivre);
     }
+
+
 }

@@ -13,12 +13,7 @@
 <body>
 <div layout:fragment="content">
     <div class="container-fluid">
-        <div class="col-lg-12 row">
-            <div class="col-lg-2 border">
-
-
-            </div>
-            <div class="col-lg-10 border">
+        <div class="col-lg-12">
                 <form th:action="@{/listeRecherche}" method="get">
                     <input type="search" name="mc" th:value="${mc}"/>
                     <button class="btn btn-primary">Chercher</button>
@@ -38,34 +33,13 @@
                                 <li class="list-group-item text-right" th:text="${ll.quantiteDispo}"></li>
                             </ul>
                             <div class="text-center spacer">
-                                <button class="btn btn-primary" type="button" data-toggle="collapse"
-                                        th:attr="data-target='#collapseExample_'+${ll.idLivre}" aria-expanded="false"
-                                        aria-controls="collapseExample">
+                                <a class="btn btn-primary" th:href="@{/livre/{idLivre}(idLivre=${ll.idLivre})}">
                                     Plus d'informations
-                                </button>
-                            </div>
-                            <div class="collapse" th:id="'collapseExample_'+${ll.idLivre}">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><strong>Description: </strong></li>
-                                    <li class="list-group-item" th:text="${ll.decription}"></li>
-                                    <li class="list-group-item"><strong>Editeur: </strong></li>
-                                    <li class="list-group-item text-right" th:text="${ll.editeur}"></li>
-                                    <li class="list-group-item"><strong>Nombre de pages: </strong></li>
-                                    <li class="list-group-item text-right" th:text="${ll.nombrePages}"></li>
-                                </ul>
-                                <div class="text-center spacer">
-                                    <button class="btn btn-primary" type="button" data-toggle="collapse"
-                                            th:attr="data-target='#collapseExample_'+${ll.idLivre}"
-                                            aria-expanded="false" aria-controls="collapseExample">
-                                        Fermer informations
-                                    </button>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
         </div>
     </div>
 </div>

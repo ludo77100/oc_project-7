@@ -18,7 +18,7 @@
             <img th:src="${livreDetails.getUrlImage()}" />
        </div>
        <div class="col-lg-8">
-           <div class="card-header"><h2 th:text="${livreDetails.titre}"></h2> <h4 class="text-right" th:text="${livreDetails.auteur}"></h4></div>
+           <div class="card-header"><h2 th:text="${livreDetails.titre}"></h2><p>de <span class="text-left" th:text="${livreDetails.auteur}"></span></p></div>
            <div class="card-body">
                <ul class="list-group">
                    <li class="list-group-item border-0" th:text="${livreDetails.decription}"></li>

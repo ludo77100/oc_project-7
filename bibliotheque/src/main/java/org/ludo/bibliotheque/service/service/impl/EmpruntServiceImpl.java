@@ -8,6 +8,7 @@ import org.ludo.bibliotheque.service.EmpruntService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -68,6 +69,7 @@ public class EmpruntServiceImpl implements EmpruntService {
         return listeEmprunt;
     }
 
+    @Transactional
     @Override
     public Emprunt ouvrirEmprunt(Long idLivre, String pseudoEmprunteur) {
 
@@ -81,17 +83,22 @@ public class EmpruntServiceImpl implements EmpruntService {
         nouvelEmprunt.setLivre(livre);
         nouvelEmprunt.setEnCours(true);
         nouvelEmprunt.setProlongeable(true);
+        livre.setQuantiteDispo(-1);
 
         return empruntRepository.save(nouvelEmprunt);
     }
 
+    @Transactional
     @Override
     public Emprunt cloturerEmprunt(Long idEmprunt) {
+
         Emprunt emprunt = empruntRepository.findById(idEmprunt).get();
+        Livre livre = emprunt.getLivre();
         Date date = new Date();
 
         emprunt.setEnCours(false);
         emprunt.setDateFin(date);
+        livre.setQuantiteDispo(+1);
 
         return empruntRepository.save(emprunt);
     }

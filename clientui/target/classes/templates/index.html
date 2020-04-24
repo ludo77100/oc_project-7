@@ -12,9 +12,12 @@
 </head>
 <body>
 <div layout:fragment="content">
+
     <div class="container-fluid">
+
         <div class="col-lg-12">
-                <form th:action="@{/listeRecherche}" method="get">
+
+            <form th:action="@{/listeRecherche}" method="get">
                     <input type="search" name="mc" th:value="${mc}"/>
                     <button class="btn btn-primary">Chercher</button>
                 </form>

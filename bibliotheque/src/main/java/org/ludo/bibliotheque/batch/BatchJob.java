@@ -11,7 +11,7 @@ public class BatchJob {
     @Autowired
     EmailService emailService ;
 
-    @Scheduled(cron = "0 14 * * * *")
+    @Scheduled(cron = "0 0 14 * * *")
     public void lendingRevival() throws Exception {
 
         emailService.envoyerEmailRelance();

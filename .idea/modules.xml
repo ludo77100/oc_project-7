@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/bibliotheque/bibliotheque.iml" filepath="$PROJECT_DIR$/bibliotheque/bibliotheque.iml" />
       <module fileurl="file://$PROJECT_DIR$/clientui/clientui.iml" filepath="$PROJECT_DIR$/clientui/clientui.iml" />
       <module fileurl="file://$PROJECT_DIR$/config-server/config-server.iml" filepath="$PROJECT_DIR$/config-server/config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/maBibilotheque-config-repo/maBibilotheque-config-repo.iml" filepath="$PROJECT_DIR$/maBibilotheque-config-repo/maBibilotheque-config-repo.iml" />
     </modules>
   </component>

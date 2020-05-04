@@ -54,3 +54,4 @@
 [DEBUG] 2020-04-27 09:34:54.775 [http-nio-8080-exec-1] BibliothequeApplication - Appel controlleur listeLivre
 [DEBUG] 2020-04-27 09:35:05.788 [http-nio-8080-exec-4] BibliothequeApplication - Appel controlleur listeLivre
 [DEBUG] 2020-04-27 09:39:59.874 [http-nio-8080-exec-5] BibliothequeApplication - Appel controlleur listeLivre
+[DEBUG] 2020-04-30 14:18:04.059 [main] BibliothequeApplication - Microservice Bibliothèque démarré

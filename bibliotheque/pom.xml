@@ -90,6 +90,14 @@
 			<version>5.2.5.RELEASE</version>
 		</dependency>
 
+		<!-- Eureka -->
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+		</dependency>
+
+		<!-- Feign -->
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

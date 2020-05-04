@@ -10,6 +10,7 @@
         <module name="bibliotheque" />
         <module name="eureka-server" />
         <module name="config-server" />
+        <module name="zuul-server" />
         <module name="clientui" />
       </profile>
     </annotationProcessing>
@@ -19,6 +20,7 @@
       <module name="config-server" target="1.8" />
       <module name="eureka-server" target="1.8" />
       <module name="Utilisateur" target="1.8" />
+      <module name="zuul-server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -28,6 +30,7 @@
       <module name="clientui" options="-parameters" />
       <module name="config-server" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="zuul-server" options="-parameters" />
     </option>
   </component>
 </project>

@@ -19,12 +19,17 @@ public class LivreController {
     @Autowired
     private MicroserviceBibliothequeProxy livresProxy ;
 
-    @RequestMapping(value = "/")
-    public String index(Model model){
+    @GetMapping(value = "")
+    public String index(){
+        return "redirect:/liste";
+    }
+
+    @RequestMapping(value = "/liste")
+    public String liste(Model model){
         List<LivreBean> listeLivres = livresProxy.listeLivre();
         model.addAttribute("listeLivresBean", listeLivres);
         System.out.println(listeLivres);
-        return "/index";
+        return "index";
     }
 
     @GetMapping(value = "/listeRecherche")
@@ -35,14 +40,14 @@ public class LivreController {
         model.addAttribute("listeLivresBean", listeLivres);
         model.addAttribute(mc);
         System.out.println(listeLivres);
-        return "/index";
+        return "index";
     }
 
     @GetMapping(value = "/livre/{idLivre}")
     public String findLivreById(@PathVariable("idLivre")Long idLidvre, Model model){
         LivreBean livreDisplay = livresProxy.findLivreById(idLidvre);
         model.addAttribute("livreDetails", livreDisplay);
-        return "/livre";
+        return "livre";
     }
 
 }

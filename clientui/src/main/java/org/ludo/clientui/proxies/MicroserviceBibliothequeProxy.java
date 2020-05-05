@@ -2,26 +2,27 @@ package org.ludo.clientui.proxies;
 
 import org.ludo.clientui.beans.EmpruntBean;
 import org.ludo.clientui.beans.LivreBean;
+import org.ludo.clientui.configuration.FeignConfig;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@FeignClient(name = "bibliotheque", url = "localhost:8080")
+@FeignClient(name = "zuul-server", contextId = "MicroserviceBibliothequeProxy", configuration = FeignConfig.class)
 public interface MicroserviceBibliothequeProxy {
 
     /*
     APIs Livre
      */
 
-    @GetMapping(value = "/liste")
+    @GetMapping(value = "/bibliotheque/liste")
     List<LivreBean> listeLivre();
 
-    @GetMapping(value = "/listeRecherche")
+    @GetMapping(value = "/bibliotheque/listeRecherche")
     List<LivreBean> listeLivreRecherche(@RequestParam(name = "mc")String mc);
 
-    @GetMapping(value = "/livre/{idLivre}")
+    @GetMapping(value = "/bibliotheque/livre/{idLivre}")
     LivreBean findLivreById(@PathVariable("idLivre")Long idLidvre);
 
     /*
@@ -30,17 +31,17 @@ public interface MicroserviceBibliothequeProxy {
     **************
      */
 
-    @GetMapping(value = "/listeEmprunt")
+    @GetMapping(value = "/bibliotheque/listeEmprunt")
     List<EmpruntBean> listeEmprunt();
 
-    @GetMapping(value = "/emprunt/id/{idEmprunt}")
+    @GetMapping(value = "/bibliotheque/emprunt/id/{idEmprunt}")
     EmpruntBean findById(@RequestParam Long idEmprunt);
 
-    @GetMapping(value = "/emprunt/pseudo/{pseudoEmprunteur}")
+    @GetMapping(value = "/bibliotheque/emprunt/pseudo/{pseudoEmprunteur}")
     public List<EmpruntBean> listeEmpruntUtilisateur(@PathVariable("pseudoEmprunteur") String pseudoEmprunteur);
 
 
-    @PutMapping(value = "/emprunt/prolonger/{idEmprunt}")
+    @PutMapping(value = "/bibliotheque/emprunt/prolonger/{idEmprunt}")
     public EmpruntBean prolongerEmprunt(@PathVariable("idEmprunt")Long idEmprunt);
 
 }

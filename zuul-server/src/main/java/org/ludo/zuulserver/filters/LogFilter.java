@@ -1,4 +1,4 @@
-package filters;
+package org.ludo.zuulserver.filters;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
@@ -7,16 +7,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 @Component
-public class ReponseFilter extends ZuulFilter {
+public class LogFilter extends ZuulFilter {
 
     Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public String filterType() {
-        return "post";
+        return "pre";
     }
 
     @Override
@@ -32,11 +32,11 @@ public class ReponseFilter extends ZuulFilter {
     @Override
     public Object run() throws ZuulException {
 
-        HttpServletResponse response = RequestContext.getCurrentContext().getResponse();
-        log.info(" CODE HTTP {} ", response.getStatus());
+        System.out.println("TTEEEESSSSTTTTT");
+        HttpServletRequest req = RequestContext.getCurrentContext().getRequest();
 
+        log.info("**** Requête interceptée ! L'URL est : {} " , req.getRequestURL());
 
         return null;
     }
-
 }

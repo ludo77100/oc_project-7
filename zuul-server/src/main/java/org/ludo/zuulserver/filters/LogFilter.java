@@ -32,7 +32,6 @@ public class LogFilter extends ZuulFilter {
     @Override
     public Object run() throws ZuulException {
 
-        System.out.println("TTEEEESSSSTTTTT");
         HttpServletRequest req = RequestContext.getCurrentContext().getRequest();
 
         log.info("**** Requête interceptée ! L'URL est : {} " , req.getRequestURL());

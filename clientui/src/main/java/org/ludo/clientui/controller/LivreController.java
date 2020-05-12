@@ -2,6 +2,8 @@ package org.ludo.clientui.controller;
 
 import org.ludo.clientui.beans.LivreBean;
 import org.ludo.clientui.proxies.MicroserviceBibliothequeProxy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,8 @@ import java.util.List;
 @Controller
 public class LivreController {
 
+    Logger log = LoggerFactory.getLogger(this.getClass());
+
     @Autowired
     private MicroserviceBibliothequeProxy livresProxy ;
 
@@ -28,7 +32,7 @@ public class LivreController {
     public String liste(Model model){
         List<LivreBean> listeLivres = livresProxy.listeLivre();
         model.addAttribute("listeLivresBean", listeLivres);
-        System.out.println(listeLivres);
+        log.info("Récupération liste des livres");
         return "index";
     }
 

@@ -83,7 +83,7 @@ public class EmpruntServiceImpl implements EmpruntService {
         nouvelEmprunt.setLivre(livre);
         nouvelEmprunt.setEnCours(true);
         nouvelEmprunt.setProlongeable(true);
-        livre.setQuantiteDispo(-1);
+        livre.setQuantiteDispo(livre.getQuantiteDispo() - 1);
 
         return empruntRepository.save(nouvelEmprunt);
     }
@@ -98,7 +98,7 @@ public class EmpruntServiceImpl implements EmpruntService {
 
         emprunt.setEnCours(false);
         emprunt.setDateFin(date);
-        livre.setQuantiteDispo(+1);
+        livre.setQuantiteDispo(livre.getQuantiteDispo() + 1);
 
         return empruntRepository.save(emprunt);
     }

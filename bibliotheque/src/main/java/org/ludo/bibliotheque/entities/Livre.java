@@ -8,29 +8,82 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Set;
 
+/**
+ * Entity livre pour le microservice bibliotheque
+ */
 @Entity
 public class Livre implements Serializable {
 
+    /**
+     * id de livre
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idLivre ;
     private String titre ;
+
+    /**
+     * auteur du livre
+     */
     private String auteur ;
+
+    /**
+     * editeur du livre
+     */
     private String editeur ;
+
+    /**
+     * description du livre
+     */
     private String decription ;
+
+    /**
+     * a supprimer TODO
+     */
     private String isbn ;
+
+    /**
+     * Nombre de pages du livre
+     */
     private int nombrePages ;
+
+    /**
+     * Quantité disponible du livre pour emprunt
+     */
     private int quantiteDispo ;
+
+    /**
+     * Url de l'image du livre
+     */
     private String urlImage ;
 
+    /**
+     * Relation avec la table emprunt
+     */
     @JsonIgnore
     @OneToMany(mappedBy = "livre", fetch = FetchType.LAZY)
     private Set<Emprunt> emprunt;
 
+    /**
+     * Instanciation de livre
+     */
     public Livre() {
         super();
     }
 
+    /**
+     * Instanciation de livre
+     * @param idLivre id de livre
+     * @param titre titre du livre
+     * @param auteur auteur du livre
+     * @param editeur editeur du livre
+     * @param decription description du livre
+     * @param isbn a supprimer
+     * @param nombrePages nombre de pages du livre
+     * @param quantiteDispo Quantité disponible du livre pour emprunt
+     * @param emprunt Relation avec la table emprunt
+     * @param urlImage Url de l'image du livre
+     */
     public Livre(Long idLivre, String titre, String auteur, String editeur, String decription, String isbn, int nombrePages, int quantiteDispo, Set<Emprunt> emprunt, String urlImage) {
         this.idLivre = idLivre;
         this.titre = titre;

@@ -33,6 +33,12 @@ public class EmailServiceImpl implements EmailService {
     @Autowired
     EmailRepository emailRepository ;
 
+    /**
+     * Envoi un email
+     * @param email adresse email
+     * @param objet objet de l'email
+     * @param contenu contenu de l'email
+     */
     @Override
     public void sendSimpleMessage(String email, String objet, String contenu) throws MessagingException {
 
@@ -46,8 +52,11 @@ public class EmailServiceImpl implements EmailService {
         sender.send(message);
     }
 
-        @Override
-        public void envoyerEmailRelance() throws MessagingException {
+    /**
+     * Permet la composition d'un message email de relance
+     */
+    @Override
+    public void envoyerEmailRelance() throws MessagingException {
 
         Email email = emailRepository.findByNom("relance");
         List<Emprunt> listeEmpruntNonRendue = empruntService.listeLivreNonRendueApresDateFin();

@@ -22,21 +22,40 @@ public class EmpruntServiceImpl implements EmpruntService {
     @Autowired
     LivreRepository livreRepository ;
 
+    /**
+     * Trouve tous les emprunts
+     * @return liste d'emprunts
+     */
     @Override
     public List<Emprunt> findAll() {
         return empruntRepository.findAll();
     }
 
+    /**
+     * Trouve un emprunt par son id
+     * @param idEmprunt id de l'emprunt
+     * @return l'emprunt
+     */
     @Override
     public Optional<Emprunt> findById(Long idEmprunt) {
         return empruntRepository.findById(idEmprunt);
     }
 
+    /**
+     * Trouve tous les emprunt pour un pseudo d'utilisateur
+     * @param pseudoEmprunteur pseudo de l'utilisateur
+     * @return la liste des emprunts
+     */
     @Override
     public List<Emprunt> findAllByPseudoEmprunteur(String pseudoEmprunteur) {
         return empruntRepository.findAllByPseudoEmprunteurAndEnCoursIsTrue(pseudoEmprunteur);
     }
 
+    /**
+     * Ajoute 4 semaine à une date
+     * @param date date à laquelle les 4 semaines doivent être ajoutée
+     * @return la nouvelle date
+     */
     @Override
     public Date ajouter4Semaines(Date date){
 
@@ -46,6 +65,11 @@ public class EmpruntServiceImpl implements EmpruntService {
         return calendar.getTime();
     }
 
+    /**
+     * Prolonge un emprunt
+     * @param idEmprunt id de l'emprunt à prolonger
+     * @return l'emprunt prolongé
+     */
     @Override
     public Emprunt prolongerEmprunt(Long idEmprunt) {
 
@@ -62,6 +86,10 @@ public class EmpruntServiceImpl implements EmpruntService {
         return empruntRepository.save(emprunt);
     }
 
+    /**
+     * Trouve tous les emprunts non rendues à date
+     * @return liste d'emprunts
+     */
     @Override
     public List<Emprunt> listeLivreNonRendueApresDateFin() {
         Date dateDuJour = new Date();
@@ -69,6 +97,12 @@ public class EmpruntServiceImpl implements EmpruntService {
         return listeEmprunt;
     }
 
+    /**
+     * Enregistre un nouvel emprunt
+     * @param idLivre id du livre emprunté
+     * @param pseudoEmprunteur pseudo de l'emprunteur
+     * @return le nouvel emprunt
+     */
     @Transactional
     @Override
     public Emprunt ouvrirEmprunt(Long idLivre, String pseudoEmprunteur) {
@@ -88,6 +122,11 @@ public class EmpruntServiceImpl implements EmpruntService {
         return empruntRepository.save(nouvelEmprunt);
     }
 
+    /**
+     * Cloture un emprunt
+     * @param idEmprunt id de l'emprûnt à clôturer
+     * @return emprûnt clôturer
+     */
     @Transactional
     @Override
     public Emprunt cloturerEmprunt(Long idEmprunt) {

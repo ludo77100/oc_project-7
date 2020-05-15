@@ -20,6 +20,10 @@ public class Livre implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idLivre ;
+
+    /**
+     * Titre du livre
+     */
     private String titre ;
 
     /**

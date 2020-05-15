@@ -2,19 +2,74 @@ package org.ludo.clientui.beans;
 
 import java.util.Collection;
 
+/**
+ * Bean pour entity livre
+ */
 public class LivreBean {
 
+    /**
+     * id de livre
+     */
     private int idLivre ;
+
+    /**
+     * Titre du livre
+     */
     private String titre ;
+
+    /**
+     * auteur du livre
+     */
     private String auteur ;
+
+    /**
+     * editeur du livre
+     */
     private String editeur ;
+
+    /**
+     * description du livre
+     */
     private String decription ;
+
+    /**
+     * a supprimer TODO
+     */
     private String isbn ;
+
+    /**
+     * Nombre de pages du livre
+     */
     private int nombrePages ;
+
+    /**
+     * Quantité disponible du livre pour emprunt
+     */
     private int quantiteDispo ;
+
+    /**
+     * Url de l'image du livre
+     */
     private String urlImage ;
+
+    /**
+     * Relation avec la table emprunt
+     */
     private Collection<EmpruntBean> emprunt;
 
+    /**
+     * Instanciation de livre
+     * @param idLivre id de livre
+     * @param titre titre du livre
+     * @param auteur auteur du livre
+     * @param editeur editeur du livre
+     * @param decription description du livre
+     * @param isbn a supprimer TODO
+     * @param nombrePages nombre de pages du livre
+     * @param quantiteDispo Quantité disponible du livre pour emprunt
+     * @param emprunt Relation avec la table emprunt
+     * @param urlImage Url de l'image du livre
+     */
     public LivreBean(int idLivre, String titre, String auteur, String editeur, String decription, String isbn, int nombrePages, int quantiteDispo, Collection<EmpruntBean> emprunt, String urlImage) {
         this.idLivre = idLivre;
         this.titre = titre;

@@ -2,16 +2,56 @@ package org.ludo.clientui.beans;
 
 import java.util.Date;
 
+/**
+ * Bean pour emprunt
+ */
 public class EmpruntBean {
 
+    /**
+     * id de emprunt
+     */
     private Long idEmprunt;
+
+    /**
+     * Pseudo de l'emprunteur
+     */
     private String pseudoEmprunteur ;
+
+    /**
+     * Date du jour
+     */
     private Date dateDebut;
+
+    /**
+     * Date du jour + 4 semaines
+     */
     private Date dateFin;
+
+    /**
+     * Emprunt prolongeable ou non
+     */
     private boolean prolongeable;
+
+    /**
+     * Emprunt en cours ou non
+     */
     private boolean enCours ;
+
+    /**
+     * Relation avec la table Livre
+     */
     private LivreBean livre ;
 
+    /**
+     * instanciation de emprunt
+     * @param idEmprunt id emprunt
+     * @param pseudoEmprunteur pseudo de l'emprunteur
+     * @param dateDebut date de début de l'emprunt
+     * @param dateFin date de fin de l'emprunt
+     * @param prolongeable prolongeable ou non
+     * @param enCours en cours ou non
+     * @param livre relation avec la table livre
+     */
     public EmpruntBean(Long idEmprunt, String pseudoEmprunteur, Date dateDebut, Date dateFin, boolean prolongeable, boolean enCours, LivreBean livre) {
         this.idEmprunt = idEmprunt;
         this.pseudoEmprunteur = pseudoEmprunteur;

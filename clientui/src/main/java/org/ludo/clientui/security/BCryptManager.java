@@ -13,13 +13,11 @@ public class BCryptManager {
 
     @Autowired
     public BCryptManager(PasswordEncoder passwordEncoder) {
-
         this.passwordEncoder = passwordEncoder;
     }
 
     @Bean(name = "passwordEncodeur")
     public static PasswordEncoder passwordEncoder(){
-
         return new BCryptPasswordEncoder();
     }
 }

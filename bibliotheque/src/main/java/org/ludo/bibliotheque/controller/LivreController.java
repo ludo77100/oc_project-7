@@ -57,6 +57,7 @@ public class LivreController {
     @ApiOperation(value = "Pour trouver un livre par son id")
     @GetMapping(value = "/livre/{idLivre}")
     public Livre findById(@PathVariable("idLivre")Long idLidvre){
+        logger.debug("Appel controlleur findById livre");
         return livreService.findLivreById(idLidvre);
     }
 

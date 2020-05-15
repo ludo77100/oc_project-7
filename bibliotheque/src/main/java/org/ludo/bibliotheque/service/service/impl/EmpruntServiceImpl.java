@@ -1,5 +1,8 @@
 package org.ludo.bibliotheque.service.service.impl;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.ludo.bibliotheque.BibliothequeApplication;
 import org.ludo.bibliotheque.dao.EmpruntRepository;
 import org.ludo.bibliotheque.dao.LivreRepository;
 import org.ludo.bibliotheque.entities.Emprunt;
@@ -17,6 +20,8 @@ import java.util.Optional;
 @Service
 public class EmpruntServiceImpl implements EmpruntService {
 
+    private static final Logger logger = LogManager.getLogger(BibliothequeApplication.class);
+
     @Autowired
     EmpruntRepository empruntRepository ;
     @Autowired
@@ -28,6 +33,7 @@ public class EmpruntServiceImpl implements EmpruntService {
      */
     @Override
     public List<Emprunt> findAll() {
+        logger.debug("Appel empruntService méthode findAll");
         return empruntRepository.findAll();
     }
 
@@ -38,6 +44,7 @@ public class EmpruntServiceImpl implements EmpruntService {
      */
     @Override
     public Optional<Emprunt> findById(Long idEmprunt) {
+        logger.debug("Appel empruntService méthode findById avec paramètre id : " + idEmprunt);
         return empruntRepository.findById(idEmprunt);
     }
 
@@ -48,6 +55,7 @@ public class EmpruntServiceImpl implements EmpruntService {
      */
     @Override
     public List<Emprunt> findAllByPseudoEmprunteur(String pseudoEmprunteur) {
+        logger.debug("Appel empruntService méthode findAllByPseudoEmprunteur avec paramètre pseudoEmprunteur : " + pseudoEmprunteur);
         return empruntRepository.findAllByPseudoEmprunteurAndEnCoursIsTrue(pseudoEmprunteur);
     }
 
@@ -58,6 +66,8 @@ public class EmpruntServiceImpl implements EmpruntService {
      */
     @Override
     public Date ajouter4Semaines(Date date){
+
+        logger.debug("Appel empruntService méthode ajouter4Semaines avec paramètre date : " + date);
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
@@ -72,6 +82,8 @@ public class EmpruntServiceImpl implements EmpruntService {
      */
     @Override
     public Emprunt prolongerEmprunt(Long idEmprunt) {
+
+        logger.debug("Appel empruntService méthode prolongerEmprunt avec paramètre idEmprunt : " + idEmprunt);
 
         Emprunt emprunt = empruntRepository.findById(idEmprunt).get();
 
@@ -92,6 +104,9 @@ public class EmpruntServiceImpl implements EmpruntService {
      */
     @Override
     public List<Emprunt> listeLivreNonRendueApresDateFin() {
+
+        logger.debug("Appel empruntService méthode listeLivreNonRendueApresDateFin");
+
         Date dateDuJour = new Date();
         List<Emprunt> listeEmprunt = empruntRepository.findAllByEnCoursFalseAndDateFinBefore(dateDuJour);
         return listeEmprunt;
@@ -106,6 +121,8 @@ public class EmpruntServiceImpl implements EmpruntService {
     @Transactional
     @Override
     public Emprunt ouvrirEmprunt(Long idLivre, String pseudoEmprunteur) {
+
+        logger.debug("Appel empruntService méthode ouvrirEmprunt");
 
         Emprunt nouvelEmprunt = new Emprunt();
         Livre livre = livreRepository.findById(idLivre).get();
@@ -131,6 +148,8 @@ public class EmpruntServiceImpl implements EmpruntService {
     @Override
     public Emprunt cloturerEmprunt(Long idEmprunt) {
 
+        logger.debug("Appel empruntService méthode cloturerEmprunt");
+
         Emprunt emprunt = empruntRepository.findById(idEmprunt).get();
         Livre livre = emprunt.getLivre();
         Date date = new Date();
@@ -141,6 +160,4 @@ public class EmpruntServiceImpl implements EmpruntService {
 
         return empruntRepository.save(emprunt);
     }
-
-
 }

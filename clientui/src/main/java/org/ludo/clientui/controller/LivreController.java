@@ -1,8 +1,10 @@
 package org.ludo.clientui.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.ludo.clientui.ClientuiApplication;
 import org.ludo.clientui.beans.LivreBean;
 import org.ludo.clientui.proxies.MicroserviceBibliothequeProxy;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,7 +20,7 @@ import java.util.List;
 @Controller
 public class LivreController {
 
-    Logger log = LoggerFactory.getLogger(this.getClass());
+    private static final Logger logger = LogManager.getLogger(ClientuiApplication.class);
 
     @Autowired
     private MicroserviceBibliothequeProxy livresProxy ;
@@ -29,6 +31,9 @@ public class LivreController {
      */
     @GetMapping(value = "")
     public String index(){
+
+        logger.debug("Appel LivreController méthode index");
+
         return "redirect:/liste";
     }
 
@@ -39,9 +44,11 @@ public class LivreController {
      */
     @RequestMapping(value = "/liste")
     public String liste(Model model){
+
+        logger.debug("Appel LivreController méthode liste");
+
         List<LivreBean> listeLivres = livresProxy.listeLivre();
         model.addAttribute("listeLivresBean", listeLivres);
-        log.info("Récupération liste des livres");
         return "index";
     }
 
@@ -53,12 +60,13 @@ public class LivreController {
      */
     @GetMapping(value = "/listeRecherche")
     public String listeLivreRecherche(Model model, @RequestParam(name="mc")String mc){
-        System.out.println(mc);
+
+        logger.debug("Appel LivreController méthode listeLivreRecherche avec param mc : " + mc);
+
         List<LivreBean> listeLivres = livresProxy.listeLivreRecherche(mc);
-        System.out.println("2eme " + mc);
+
         model.addAttribute("listeLivresBean", listeLivres);
         model.addAttribute(mc);
-        System.out.println(listeLivres);
         return "index";
     }
 
@@ -70,6 +78,9 @@ public class LivreController {
      */
     @GetMapping(value = "/livre/{idLivre}")
     public String findLivreById(@PathVariable("idLivre")Long idLidvre, Model model){
+
+        logger.debug("Appel LivreController méthode findLivreById avec param idLidvre : " + idLidvre);
+
         LivreBean livreDisplay = livresProxy.findLivreById(idLidvre);
         model.addAttribute("livreDetails", livreDisplay);
         return "livre";

@@ -22,6 +22,10 @@ public class EmpruntController {
     @Autowired
     EmpruntService empruntService ;
 
+    /**
+     * Récupère la liste de tous les emprunts
+     * @return liste d'emprunts
+     */
     @ApiOperation(value = "Pour lister les emprunts")
     @GetMapping(value = "/listeEmprunt")
     public List<Emprunt> listeEmprunt(){

@@ -9,7 +9,6 @@ import org.ludo.bibliotheque.service.LivreService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.annotation.RequestScope;
 
 import java.util.List;
 
@@ -50,6 +49,11 @@ public class LivreController {
         return livreService.findByTitreContainingIgnoreCase(mc);
     }
 
+    /**
+     * Controlleur pour afficher les détails d'un livre
+     * @param idLidvre id du livre pour lequel les détails sont demandés
+     * @return le livre
+     */
     @ApiOperation(value = "Pour trouver un livre par son id")
     @GetMapping(value = "/livre/{idLivre}")
     public Livre findById(@PathVariable("idLivre")Long idLidvre){

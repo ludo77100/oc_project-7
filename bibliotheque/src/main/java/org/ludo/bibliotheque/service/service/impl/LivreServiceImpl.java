@@ -1,5 +1,8 @@
 package org.ludo.bibliotheque.service.service.impl;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.ludo.bibliotheque.BibliothequeApplication;
 import org.ludo.bibliotheque.dao.LivreRepository;
 import org.ludo.bibliotheque.entities.Livre;
 import org.ludo.bibliotheque.service.LivreService;
@@ -11,6 +14,8 @@ import java.util.List;
 @Service
 public class LivreServiceImpl implements LivreService {
 
+    private static final Logger logger = LogManager.getLogger(BibliothequeApplication.class);
+
     @Autowired
     LivreRepository livreRepository ;
 
@@ -20,6 +25,9 @@ public class LivreServiceImpl implements LivreService {
      */
     @Override
     public List<Livre> findAll() {
+
+        logger.debug("Appel LivreServiceImpl méthode findAll");
+
         return livreRepository.findAll();
     }
 
@@ -30,17 +38,23 @@ public class LivreServiceImpl implements LivreService {
      */
     @Override
     public List<Livre> findByTitreContainingIgnoreCase(String mc) {
+
+        logger.debug("Appel LivreServiceImpl méthode findByTitreContainingIgnoreCase avec paramètre mc : " +mc );
+
         return livreRepository.findByTitreContainingIgnoreCase(mc);
     }
 
     /**
      * Trouve un livre par son id
-     * @param idLidvre id du livre à trouver
+     * @param idLivre id du livre à trouver
      * @return le livre
      */
     @Override
-    public Livre findLivreById(Long idLidvre) {
-        return livreRepository.findById(idLidvre).get();
+    public Livre findLivreById(Long idLivre) {
+
+        logger.debug("Appel LivreServiceImpl méthode findLivreById avec paramètre idLidvre : " +idLivre );
+
+        return livreRepository.findById(idLivre).get();
     }
 
     /**
@@ -50,6 +64,8 @@ public class LivreServiceImpl implements LivreService {
      */
     @Override
     public Livre enregistrerNouveauLivre(Livre livre) {
+
+        logger.debug("Appel LivreServiceImpl méthode enregistrerNouveauLivre");
 
         Livre nouveauLivre = new Livre() ;
 
@@ -71,6 +87,9 @@ public class LivreServiceImpl implements LivreService {
      */
     @Override
     public void supprimerLivre(Long idLivre) {
+
+        logger.debug("Appel LivreServiceImpl méthode supprimerLivre avec paramètre idLidvre : " + idLivre );
+
         livreRepository.deleteById(idLivre);
     }
 

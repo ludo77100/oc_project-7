@@ -1,5 +1,8 @@
 package org.ludo.bibliotheque.service.service.impl;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.ludo.bibliotheque.BibliothequeApplication;
 import org.ludo.bibliotheque.beans.UtilisateurBean;
 import org.ludo.bibliotheque.dao.EmailRepository;
 import org.ludo.bibliotheque.entities.Email;
@@ -20,6 +23,8 @@ import java.util.List;
 
 @Service
 public class EmailServiceImpl implements EmailService {
+
+    private static final Logger logger = LogManager.getLogger(BibliothequeApplication.class);
 
     @Autowired
     private JavaMailSenderImpl sender;
@@ -42,6 +47,8 @@ public class EmailServiceImpl implements EmailService {
     @Override
     public void sendSimpleMessage(String email, String objet, String contenu) throws MessagingException {
 
+        logger.debug("Appel EmailServiceImpl méthode sendSimpleMessage à l'adresse : " + email);
+
         MimeMessage message = sender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
 
@@ -63,11 +70,15 @@ public class EmailServiceImpl implements EmailService {
 
         for (Emprunt e: listeEmpruntNonRendue) {
 
+
+
             Date datefin = e.getDateFin();
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             String strDate = sdf.format(datefin);
 
             UtilisateurBean utilisateur = microserviceUtilisateurProxy.login(e.getPseudoEmprunteur());
+
+            logger.debug("Appel EmailServiceImpl méthode envoyerEmailRelance à l'adresse : " + utilisateur.getEmail() + " pour le livre : " +e.getLivre().getTitre() + " pour l'emprunt id : " + e.getIdEmprunt());
 
             String text = email.getContenu()
                     .replace("[NOMUTILISATEUR]", e.getPseudoEmprunteur())

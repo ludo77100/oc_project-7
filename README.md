@@ -41,3 +41,17 @@ Plusieurs utilisateurs ont été créés :
 
 Un administrateur:   
 •Identifiant : admin Mot de passe : admin
+
+Un Utilisateur:  
+•Identifiant : util Mot de passe : util
+
+Si vous n'utilisez pas le jeux de données:  
+Vous pouvez inscrire un nouvel utilisateur une fois l'application lancée en passant par swagger grâce à l'API (vous devez hasher le MDP avec https://www.bcrypt.fr/ pour que cela fonctionne)
+Vous pourrez ensuite faire une élévation de privilèges grâces à l'API avec swagger.
+
+## Construit avec:
+* [Maven](https://maven.apache.org/)
+* [SpringBoot](https://spring.io/projects/spring-boot)
+
+## Auteur
+Ludovic SOUPLET - Pour reconversion professionnelle via OpenclassRooms

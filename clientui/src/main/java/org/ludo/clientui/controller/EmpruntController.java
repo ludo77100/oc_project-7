@@ -1,5 +1,8 @@
 package org.ludo.clientui.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.ludo.clientui.ClientuiApplication;
 import org.ludo.clientui.beans.EmpruntBean;
 import org.ludo.clientui.beans.UtilisateurBean;
 import org.ludo.clientui.proxies.MicroserviceBibliothequeProxy;
@@ -17,6 +20,8 @@ import java.util.List;
 @Controller
 public class EmpruntController {
 
+    private static final Logger logger = LogManager.getLogger(ClientuiApplication.class);
+
     @Autowired
     MicroserviceBibliothequeProxy empruntProxy ;
 
@@ -27,6 +32,8 @@ public class EmpruntController {
      */
     @GetMapping(value = "/emprunt/utilisateur")
     public String listeEmpruntUtilisateur(Model model){
+
+        logger.debug("Appel EmpruntController méthode listeEmpruntUtilisateur");
 
         UtilisateurBean utilDet = (UtilisateurBean) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String pseudoEmprunteur = utilDet.getUsername();
@@ -44,6 +51,9 @@ public class EmpruntController {
      */
     @GetMapping(value = "/emprunt/prolonger/{idEmprunt}")
     public String prolongerEmprunt(@PathVariable("idEmprunt")Long idEmprunt){
+
+        logger.debug("Appel EmpruntController méthode prolongerEmprunt");
+
         empruntProxy.prolongerEmprunt(idEmprunt);
         return "redirect:/emprunt/utilisateur";
     }

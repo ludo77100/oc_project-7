@@ -1,5 +1,8 @@
 package org.ludo.Utilisateur.service.serviceImpl;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.ludo.Utilisateur.UtilisateurApplication;
 import org.ludo.Utilisateur.dao.UtilisateurRepository;
 import org.ludo.Utilisateur.dto.UtilisateurDto;
 import org.ludo.Utilisateur.emums.RoleEnum;
@@ -13,6 +16,8 @@ import java.util.List;
 @Service
 public class UtilisateurServiceImpl implements UtilisateurService {
 
+    private static final Logger logger = LogManager.getLogger(UtilisateurApplication.class);
+
     @Autowired
     UtilisateurRepository utilisateurRepository;
 
@@ -22,6 +27,9 @@ public class UtilisateurServiceImpl implements UtilisateurService {
      */
     @Override
     public List<Utilisateur> findAll() {
+
+        logger.debug("Appel UtilisateurServiceImpl méthode findAll utilisateur");
+
         return utilisateurRepository.findAll();
     }
 
@@ -32,6 +40,9 @@ public class UtilisateurServiceImpl implements UtilisateurService {
      */
     @Override
     public Utilisateur findByPseudo(String pseudo) {
+
+        logger.debug("Appel UtilisateurServiceImpl méthode findByPseudo avec paramètre :" + pseudo);
+
         return utilisateurRepository.findByPseudo(pseudo);
     }
 
@@ -42,6 +53,8 @@ public class UtilisateurServiceImpl implements UtilisateurService {
      */
     @Override
     public Utilisateur enregistrerUtilisateur(UtilisateurDto utilisateurDto) {
+
+        logger.debug("Appel UtilisateurServiceImpl méthode enregistrerUtilisateur");
 
         Utilisateur nouvelUtilisateur = new Utilisateur();
 
@@ -61,6 +74,8 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     @Override
     public Utilisateur privilegeUtilisateur(String pseudo) {
 
+        logger.debug("Appel UtilisateurServiceImpl méthode privilegeUtilisateur avec paramètre :" + pseudo);
+
         Utilisateur modificationUtilisateur = utilisateurRepository.findByPseudo(pseudo);
 
         modificationUtilisateur.grantAuthority(RoleEnum.UTILISATEUR);
@@ -75,6 +90,8 @@ public class UtilisateurServiceImpl implements UtilisateurService {
      */
     @Override
     public Utilisateur privilegeBibliothecaire(String pseudo) {
+
+        logger.debug("Appel UtilisateurServiceImpl méthode privilegeBibliothecaire avec paramètre :" + pseudo);
 
         Utilisateur modificationUtilisateur = utilisateurRepository.findByPseudo(pseudo);
 
@@ -93,6 +110,8 @@ public class UtilisateurServiceImpl implements UtilisateurService {
      */
     @Override
     public Utilisateur privilegeAdministrateur(String pseudo) {
+
+        logger.debug("Appel UtilisateurServiceImpl méthode privilegeAdministrateur avec paramètre :" + pseudo);
 
         Utilisateur modificationUtilisateur = utilisateurRepository.findByPseudo(pseudo);
 

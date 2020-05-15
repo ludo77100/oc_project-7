@@ -10,6 +10,13 @@ Elle est articulé autour de 3 microservices:
 - Utilisateur
 - ClientUI
 
+Et des EDGE Service suivant:
+
+- Spring Cloud Config
+- Eureka
+- ZUUL
+- Zipkin
+
 ### Pré-requis
 
 Vous avez besoin d'installer:
@@ -48,6 +55,10 @@ Un Utilisateur:
 Si vous n'utilisez pas le jeux de données:  
 Vous pouvez inscrire un nouvel utilisateur une fois l'application lancée en passant par swagger grâce à l'API (vous devez hasher le MDP avec https://www.bcrypt.fr/ pour que cela fonctionne)
 Vous pourrez ensuite faire une élévation de privilèges grâces à l'API avec swagger.
+
+###Ordre de lancement:
+
+Lancer en premier les edges services et ensuite le microservice bibliotheque puis le microservice utilisateur en enfin clientUi
 
 ## Construit avec:
 * [Maven](https://maven.apache.org/)

@@ -12,12 +12,25 @@ import java.util.List;
 @FeignClient(name = "zuul-server", contextId = "MicroserviceUtilisateurProxy", configuration = FeignConfig.class)
 public interface MicroserviceUtilisateurProxy {
 
+    /**
+     * Liste tous les utilisateurs
+     */
     @GetMapping(value = "/utilisateur/listeUtilisateur")
     List<UtilisateurBean> listeUtilisateur();
 
+    /**
+     * Trouve un utilisateur par son pseudo
+     * @param pseudo pseudo de l'utilisateur à trouver
+     * @return un utilisateur
+     */
     @GetMapping(value = "/utilisateur/utilisateur/{pseudo}")
     UtilisateurBean login(@PathVariable String pseudo);
 
+    /**
+     * Permet la modification des privilège d'un utilisateur
+     * @param pseudo pseudo pour appliquer la modification
+     * @param privilege privilège à appliquer
+     */
     @PutMapping(value = "/utilisateur/utilisateur/{pseudo}/{privilege}")
     public UtilisateurBean modificationPrivilege(@PathVariable String pseudo, @PathVariable String privilege);
 

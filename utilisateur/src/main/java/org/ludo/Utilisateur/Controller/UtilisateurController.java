@@ -53,7 +53,7 @@ public class UtilisateurController {
      * Permet la modification des privilège d'un utilisateur
      * @param pseudo pseudo pour appliquer la modification
      * @param privilege privilège à appliquer
-     * @return
+     * @return la modification de privilège demandée
      */
     @ApiOperation(value = "Pour modifier les privilède d'un utilisateur")
     @PutMapping(value = "/utilisateur/{pseudo}/{privilege}")

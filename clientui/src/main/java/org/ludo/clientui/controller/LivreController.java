@@ -23,11 +23,20 @@ public class LivreController {
     @Autowired
     private MicroserviceBibliothequeProxy livresProxy ;
 
+    /**
+     * Controlleur pour l'index de l'application
+     * @return redirige vers la liste des livres
+     */
     @GetMapping(value = "")
     public String index(){
         return "redirect:/liste";
     }
 
+    /**
+     * Permet d'afficher la liste des livres
+     * @param model instance du model en cours
+     * @return la vue index avec la liste des livres
+     */
     @RequestMapping(value = "/liste")
     public String liste(Model model){
         List<LivreBean> listeLivres = livresProxy.listeLivre();
@@ -36,6 +45,12 @@ public class LivreController {
         return "index";
     }
 
+    /**
+     * Permet d'effectuer une recherche sur les titres des livres
+     * @param model instance du model en cours
+     * @param mc mot clé pour la recherche
+     * @return la vue avec la liste de livre recherchés
+     */
     @GetMapping(value = "/listeRecherche")
     public String listeLivreRecherche(Model model, @RequestParam(name="mc")String mc){
         System.out.println(mc);
@@ -47,6 +62,12 @@ public class LivreController {
         return "index";
     }
 
+    /**
+     * Permet d'afficher les détails d'un livre
+     * @param idLidvre id du livre à afficher
+     * @param model instance du model en cours
+     * @return la vue avec les détails du livre demandé
+     */
     @GetMapping(value = "/livre/{idLivre}")
     public String findLivreById(@PathVariable("idLivre")Long idLidvre, Model model){
         LivreBean livreDisplay = livresProxy.findLivreById(idLidvre);

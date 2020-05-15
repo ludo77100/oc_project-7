@@ -12,6 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class UtilisateurController {
 
+    /**
+     * Permet d'afficher les détails d'un utilisateur
+     * @param model instance du model en cours
+     * @param request HttpServletRequest, ici pour vérifier qu'un utilisateur est connecté
+     * @return la vue avec les informations personelles de l'utilisateur
+     */
     @GetMapping(value = "/infosPerso")
     public String infosPerso(Model model, HttpServletRequest request) {
         if (request.getRemoteUser() == null) {

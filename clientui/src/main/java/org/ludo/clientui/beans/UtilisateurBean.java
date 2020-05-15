@@ -5,14 +5,38 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
-
+/**
+ * Bean pour entity Utilisateur
+ */
 public class UtilisateurBean implements UserDetails {
 
+    /**
+     * id de l'utilisateur
+     */
     private Long idUtilisateur ;
+
+    /**
+     * pseudo de l'utilisateur
+     */
     private String pseudo;
+
+    /**
+     * mot de passe de l'utilisateur
+     */
     private String motDePass;
+
+    /**
+     * email de l'utilisateur
+     */
     private String email;
 
+    /**
+     * Instanciation de l'utilisateur
+     * @param idUtilisateur id de l'utilisateur
+     * @param pseudo pseudo de l'utilisateur
+     * @param motDePass mot de pass de l'utilisateur
+     * @param email email de l'utilisateur
+     */
     public UtilisateurBean(Long idUtilisateur, String pseudo, String motDePass, String email) {
         this.idUtilisateur = idUtilisateur;
         this.pseudo = pseudo;

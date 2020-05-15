@@ -13,29 +13,37 @@ import java.util.Optional;
 public interface MicroserviceBibliothequeProxy {
 
     /*
+    **************
     APIs Livre
+    **************
      */
+
 
     @GetMapping(value = "/bibliotheque/liste")
     List<LivreBean> listeLivre();
 
+
     @GetMapping(value = "/bibliotheque/listeRecherche")
     List<LivreBean> listeLivreRecherche(@RequestParam(name = "mc")String mc);
+
 
     @GetMapping(value = "/bibliotheque/livre/{idLivre}")
     LivreBean findLivreById(@PathVariable("idLivre")Long idLidvre);
 
     /*
-    *************
+    **************
     APIs Emprunt
     **************
      */
 
+
     @GetMapping(value = "/bibliotheque/listeEmprunt")
     List<EmpruntBean> listeEmprunt();
 
+
     @GetMapping(value = "/bibliotheque/emprunt/id/{idEmprunt}")
     EmpruntBean findById(@RequestParam Long idEmprunt);
+
 
     @GetMapping(value = "/bibliotheque/emprunt/pseudo/{pseudoEmprunteur}")
     public List<EmpruntBean> listeEmpruntUtilisateur(@PathVariable("pseudoEmprunteur") String pseudoEmprunteur);

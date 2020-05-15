@@ -20,6 +20,11 @@ public class EmpruntController {
     @Autowired
     MicroserviceBibliothequeProxy empruntProxy ;
 
+    /**
+     * Permet de récupérer la liste des emprunts d'un utilisateur
+     * @param model instance du model en cours
+     * @return la vue avec les emprunts de l'utilisateur
+     */
     @GetMapping(value = "/emprunt/utilisateur")
     public String listeEmpruntUtilisateur(Model model){
 
@@ -32,6 +37,11 @@ public class EmpruntController {
         return "/listeEmprunts" ;
     }
 
+    /**
+     * Permet de prolonger un emprunt
+     * @param idEmprunt id de l'emprunt à prolonger
+     * @return redirige vers la vue emprunt de l'utilisateur
+     */
     @GetMapping(value = "/emprunt/prolonger/{idEmprunt}")
     public String prolongerEmprunt(@PathVariable("idEmprunt")Long idEmprunt){
         empruntProxy.prolongerEmprunt(idEmprunt);

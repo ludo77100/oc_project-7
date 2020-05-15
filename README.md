@@ -13,9 +13,9 @@ Elle est articulé autour de 3 microservices:
 ### Pré-requis
 
 Vous avez besoin d'installer:
-•JDK 8  
-•BDD Mysql pour 2 BDD
-•Maven  
+- JDK 8  
+- BDD Mysql pour 2 BDD
+- Maven  
 
 ### Installation
 

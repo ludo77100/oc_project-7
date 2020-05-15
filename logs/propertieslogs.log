@@ -131,3 +131,11 @@
 [DEBUG] 2020-05-15 10:11:42.087 [http-nio-8080-exec-3] BibliothequeApplication - Appel controlleur listeLivre
 [DEBUG] 2020-05-15 10:12:12.736 [http-nio-8080-exec-6] BibliothequeApplication - Appel controlleur listeLivre
 [DEBUG] 2020-05-15 10:16:17.732 [http-nio-8080-exec-9] BibliothequeApplication - Appel controlleur listeLivre
+[DEBUG] 2020-05-15 12:01:18.377 [http-nio-8080-exec-2] BibliothequeApplication - Appel controlleur listeLivre
+[DEBUG] 2020-05-15 12:01:44.602 [http-nio-8080-exec-3] BibliothequeApplication - Appel controlleur listeLivre
+[DEBUG] 2020-05-15 12:07:14.320 [http-nio-8080-exec-5] BibliothequeApplication - Appel controlleur listeLivre
+[DEBUG] 2020-05-15 12:07:46.553 [http-nio-8080-exec-6] BibliothequeApplication - Appel controlleur listeLivre
+[DEBUG] 2020-05-15 12:07:55.167 [http-nio-8080-exec-7] BibliothequeApplication - Appel controlleur listeLivre
+[DEBUG] 2020-05-15 12:08:37.579 [http-nio-8080-exec-8] BibliothequeApplication - Appel controlleur listeLivre
+[DEBUG] 2020-05-15 12:08:46.808 [http-nio-8080-exec-10] BibliothequeApplication - Appel controlleur listeLivre
+[DEBUG] 2020-05-15 12:10:22.498 [http-nio-8080-exec-1] BibliothequeApplication - Appel controlleur listeLivre

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -31,17 +32,22 @@ public class EmpruntController {
      * @return la vue avec les emprunts de l'utilisateur
      */
     @GetMapping(value = "/emprunt/utilisateur")
-    public String listeEmpruntUtilisateur(Model model){
+    public String listeEmpruntUtilisateur(Model model, HttpServletRequest request) {
 
         logger.debug("Appel EmpruntController méthode listeEmpruntUtilisateur");
 
-        UtilisateurBean utilDet = (UtilisateurBean) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String pseudoEmprunteur = utilDet.getUsername();
+        if (request.getRemoteUser() == null) {
+            return "connexion";
+        } else {
 
-        List<EmpruntBean> listeEmpruntsUtilisateur = empruntProxy.listeEmpruntUtilisateur(pseudoEmprunteur);
-        model.addAttribute("listeEmpruntsUtilisateur", listeEmpruntsUtilisateur);
+            UtilisateurBean utilDet = (UtilisateurBean) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            String pseudoEmprunteur = utilDet.getUsername();
 
-        return "/listeEmprunts" ;
+            List<EmpruntBean> listeEmpruntsUtilisateur = empruntProxy.listeEmpruntUtilisateur(pseudoEmprunteur);
+            model.addAttribute("listeEmpruntsUtilisateur", listeEmpruntsUtilisateur);
+
+            return "/listeEmprunts";
+        }
     }
 
     /**
@@ -50,11 +56,16 @@ public class EmpruntController {
      * @return redirige vers la vue emprunt de l'utilisateur
      */
     @GetMapping(value = "/emprunt/prolonger/{idEmprunt}")
-    public String prolongerEmprunt(@PathVariable("idEmprunt")Long idEmprunt){
+    public String prolongerEmprunt(@PathVariable("idEmprunt")Long idEmprunt, HttpServletRequest request){
 
         logger.debug("Appel EmpruntController méthode prolongerEmprunt");
 
-        empruntProxy.prolongerEmprunt(idEmprunt);
-        return "redirect:/emprunt/utilisateur";
+        if (request.getRemoteUser() == null) {
+            return "connexion";
+        } else {
+
+            empruntProxy.prolongerEmprunt(idEmprunt);
+            return "redirect:/emprunt/utilisateur";
+        }
     }
 }

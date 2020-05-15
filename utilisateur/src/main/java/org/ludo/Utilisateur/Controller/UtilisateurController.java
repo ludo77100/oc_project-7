@@ -16,14 +16,21 @@ public class UtilisateurController {
     @Autowired
     private UtilisateurService utilisateurService;
 
+    /**
+     * Liste tous les utilisateurs
+     * @return liste d'utilisateur
+     */
     @ApiOperation("Pour retourner une liste des utilisateurs")
     @GetMapping(value = "/listeUtilisateur")
     public List<Utilisateur> listeUtilisateur(){
         return utilisateurService.findAll();
     }
 
-
-
+    /**
+     * Trouve un utilisateur par son pseudo
+     * @param pseudo pseudo de l'utilisateur à trouver
+     * @return un utilisateur
+     */
     @ApiOperation(value = "Pour s'identifier")
     @GetMapping(value = "/utilisateur/{pseudo}")
     public Utilisateur login(@PathVariable String pseudo){
@@ -31,12 +38,23 @@ public class UtilisateurController {
         return utilisateur;
     }
 
+    /**
+     * Enregistre un nouvel utilisateur
+     * @param utilisateurDto informations sur l'utilisateur
+     * @return un nouvel utilisateur
+     */
     @ApiOperation(value = "Pour enregistrer un nouvel utilisateur")
     @PostMapping(value = "/utilisateur")
     public Utilisateur enregistrerUtilisateur(@RequestBody UtilisateurDto utilisateurDto){
         return utilisateurService.enregistrerUtilisateur(utilisateurDto);
     }
 
+    /**
+     * Permet la modification des privilège d'un utilisateur
+     * @param pseudo pseudo pour appliquer la modification
+     * @param privilege privilège à appliquer
+     * @return
+     */
     @ApiOperation(value = "Pour modifier les privilède d'un utilisateur")
     @PutMapping(value = "/utilisateur/{pseudo}/{privilege}")
     public Utilisateur modificationPrivilege(@PathVariable String pseudo, @PathVariable String privilege){

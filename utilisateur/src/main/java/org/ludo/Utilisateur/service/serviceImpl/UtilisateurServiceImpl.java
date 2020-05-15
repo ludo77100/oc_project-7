@@ -15,17 +15,31 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
     @Autowired
     UtilisateurRepository utilisateurRepository;
-    
+
+    /**
+     * Liste tous les utilisateur
+     * @return une liste d'utilisateur
+     */
     @Override
     public List<Utilisateur> findAll() {
         return utilisateurRepository.findAll();
     }
 
+    /**
+     * Trouve un utilisateur par son pseudo
+     * @param pseudo pseudo de l'utilisateur à trouver
+     * @return l'utilisateur
+     */
     @Override
     public Utilisateur findByPseudo(String pseudo) {
         return utilisateurRepository.findByPseudo(pseudo);
     }
 
+    /**
+     * Permet d'enregitrer un nouvel utilisateur
+     * @param utilisateurDto informations sur l'utilisateur à enrgistrer
+     * @return un nouvel utilisateur
+     */
     @Override
     public Utilisateur enregistrerUtilisateur(UtilisateurDto utilisateurDto) {
 
@@ -39,6 +53,11 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         return utilisateurRepository.save(nouvelUtilisateur);
     }
 
+    /**
+     * Permet la modification du privilège d'un utilisateur au rôle "utilisateur"
+     * @param pseudo pseudo de l'utilisateur à modifier
+     * @return l'utilisateur avec son rôle modifier
+     */
     @Override
     public Utilisateur privilegeUtilisateur(String pseudo) {
 
@@ -49,6 +68,11 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         return utilisateurRepository.save(modificationUtilisateur);
     }
 
+    /**
+     * Permet la modification du privilège d'un utilisateur au rôle "bibliothequaire"
+     * @param pseudo pseudo de l'utilisateur à modifier
+     * @return l'utilisateur avec son rôle modifier
+     */
     @Override
     public Utilisateur privilegeBibliothecaire(String pseudo) {
 
@@ -62,6 +86,11 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         return utilisateurRepository.save(modificationUtilisateur);
     }
 
+    /**
+     * Permet la modification du privilège d'un utilisateur au rôle "admin"
+     * @param pseudo pseudo de l'utilisateur à modifier
+     * @return l'utilisateur avec son rôle modifier
+     */
     @Override
     public Utilisateur privilegeAdministrateur(String pseudo) {
 

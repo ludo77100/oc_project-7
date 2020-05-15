@@ -76,8 +76,5 @@ public class EmailServiceImpl implements EmailService {
 
             sendSimpleMessage(utilisateur.getEmail(), email.getObjet(), text);
         }
-
-
-
     }
 }

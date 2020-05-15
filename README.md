@@ -29,21 +29,21 @@ mvn clean install
 
 Pour la base de données vous pouvez :
 
-•la laisser déployer ses tables automatiquement au lancement de l'application grâce à hibernate et ensuite si vous le souhaitez, déployer le fichier: "TODO"
+- la laisser déployer ses tables automatiquement au lancement de l'application grâce à hibernate et ensuite si vous le souhaitez, déployer le fichier: "TODO"
 
-•déployer le schéma de BDD avec le fichier: "TODO" et ensuite si vous le souhaitez, déployer le fichier: "TODO"
+- déployer le schéma de BDD avec le fichier: "TODO" et ensuite si vous le souhaitez, déployer le fichier: "TODO"
 
-•déployer schéma et jeux de données avec le fichier : "TODO" (avant de lancer l'application pour la première fois)
+- déployer schéma et jeux de données avec le fichier : "TODO" (avant de lancer l'application pour la première fois)
 
 Si vous utilisez le jeux de données:
 
 Plusieurs utilisateurs ont été créés :
 
 Un administrateur:   
-•Identifiant : admin Mot de passe : admin
+- Identifiant : admin Mot de passe : admin
 
 Un Utilisateur:  
-•Identifiant : util Mot de passe : util
+- Identifiant : util Mot de passe : util
 
 Si vous n'utilisez pas le jeux de données:  
 Vous pouvez inscrire un nouvel utilisateur une fois l'application lancée en passant par swagger grâce à l'API (vous devez hasher le MDP avec https://www.bcrypt.fr/ pour que cela fonctionne)

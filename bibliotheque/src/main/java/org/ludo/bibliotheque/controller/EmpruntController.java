@@ -117,7 +117,7 @@ public class EmpruntController {
     @ApiOperation(value = "Pour retourner une liste de livre non rendue avant la date de fin d'emprunt")
     @GetMapping(value = "/emprunt")
     public List<Emprunt> listeLivreNonRendueApresDateFin(){
-
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         logger.debug("Appel controlleur listeLivreNonRendueApresDateFin");
 
         return empruntService.listeLivreNonRendueApresDateFin();

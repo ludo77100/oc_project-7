@@ -23,5 +23,5 @@ public interface EmpruntRepository extends JpaRepository<Emprunt, Long> {
      * @param dateDuJour date du jour
      * @return une liste d'emprunts
      */
-    List<Emprunt> findAllByEnCoursFalseAndDateFinBefore(Date dateDuJour);
+    List<Emprunt> findAllByEnCoursTrueAndDateFinBefore(Date dateDuJour);
 }

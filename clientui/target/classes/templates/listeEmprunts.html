@@ -28,7 +28,7 @@
                         <li class="list-group-item text-right" th:text="${#dates.format(leu.dateFin, 'dd/MM/yyyy')}"></li>
                     </ul>
                     <div class="text-center spacer">
-                        <button class="btn btn-primary" th:if="${leu.prolongeable == TRUE}"><a th:href="@{/emprunt/prolonger/{idEmprunt}(idEmprunt=${leu.idEmprunt})}">Prolonger</a></button>
+                        <button class="btn btn-primary" th:if="${leu.prolongeable == TRUE}"><a class="btn btn-primary" th:href="@{/emprunt/prolonger/{idEmprunt}(idEmprunt=${leu.idEmprunt})}">Prolonger</a></button>
                         <span th:unless="${leu.prolongeable == TRUE}">Déjà prolongé</span>
                     </div>
                     </div>

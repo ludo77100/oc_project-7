@@ -108,7 +108,7 @@ public class EmpruntServiceImpl implements EmpruntService {
         logger.debug("Appel empruntService méthode listeLivreNonRendueApresDateFin");
 
         Date dateDuJour = new Date();
-        List<Emprunt> listeEmprunt = empruntRepository.findAllByEnCoursFalseAndDateFinBefore(dateDuJour);
+        List<Emprunt> listeEmprunt = empruntRepository.findAllByEnCoursTrueAndDateFinBefore(dateDuJour);
         return listeEmprunt;
     }
 

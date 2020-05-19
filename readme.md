@@ -26,7 +26,7 @@ Vous avez besoin d'installer:
 
 ### Installation
 
-1 - Initialiser les bases de données avec comme nom : maBibliMsBibliotheque et une autre maBibliMsUtilisateur (port 3306 - sinon à modifier dans application.properties une fois le code cloné)  
+1 - Initialiser les bases de données avec comme nom : maBibliMsBibliotheque et une autre maBibliMsUtilisateur (port 3306, username root, mot de pass vide)  
 2 - Cloner le projet depuis le repository  
 3 - Générer le war avec la commande suivante :  
 ```

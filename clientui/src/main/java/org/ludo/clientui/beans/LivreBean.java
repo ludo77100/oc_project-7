@@ -33,11 +33,6 @@ public class LivreBean {
     private String decription ;
 
     /**
-     * a supprimer TODO
-     */
-    private String isbn ;
-
-    /**
      * Nombre de pages du livre
      */
     private int nombrePages ;
@@ -64,19 +59,17 @@ public class LivreBean {
      * @param auteur auteur du livre
      * @param editeur editeur du livre
      * @param decription description du livre
-     * @param isbn a supprimer TODO
      * @param nombrePages nombre de pages du livre
      * @param quantiteDispo Quantité disponible du livre pour emprunt
      * @param emprunt Relation avec la table emprunt
      * @param urlImage Url de l'image du livre
      */
-    public LivreBean(int idLivre, String titre, String auteur, String editeur, String decription, String isbn, int nombrePages, int quantiteDispo, Collection<EmpruntBean> emprunt, String urlImage) {
+    public LivreBean(int idLivre, String titre, String auteur, String editeur, String decription, int nombrePages, int quantiteDispo, Collection<EmpruntBean> emprunt, String urlImage) {
         this.idLivre = idLivre;
         this.titre = titre;
         this.auteur = auteur;
         this.editeur = editeur;
         this.decription = decription;
-        this.isbn = isbn;
         this.nombrePages = nombrePages;
         this.quantiteDispo = quantiteDispo;
         this.emprunt = emprunt;
@@ -123,14 +116,6 @@ public class LivreBean {
         this.decription = decription;
     }
 
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
     public int getNombrePages() {
         return nombrePages;
     }
@@ -171,7 +156,6 @@ public class LivreBean {
                 ", auteur='" + auteur + '\'' +
                 ", editeur='" + editeur + '\'' +
                 ", decription='" + decription + '\'' +
-                ", isbn='" + isbn + '\'' +
                 ", nombrePages=" + nombrePages +
                 ", quantiteDispo=" + quantiteDispo +
                 ", urlImage='" + urlImage + '\'' +

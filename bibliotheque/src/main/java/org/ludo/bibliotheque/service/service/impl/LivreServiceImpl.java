@@ -72,7 +72,6 @@ public class LivreServiceImpl implements LivreService {
         nouveauLivre.setAuteur(livre.getAuteur());
         nouveauLivre.setDecription(livre.getDecription());
         nouveauLivre.setEditeur(livre.getEditeur());
-        nouveauLivre.setIsbn(livre.getIsbn());
         nouveauLivre.setNombrePages(livre.getNombrePages());
         nouveauLivre.setQuantiteDispo(livre.getQuantiteDispo());
         nouveauLivre.setTitre(livre.getTitre());

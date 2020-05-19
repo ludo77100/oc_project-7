@@ -42,11 +42,6 @@ public class Livre implements Serializable {
     private String decription ;
 
     /**
-     * a supprimer TODO
-     */
-    private String isbn ;
-
-    /**
      * Nombre de pages du livre
      */
     private int nombrePages ;
@@ -82,19 +77,17 @@ public class Livre implements Serializable {
      * @param auteur auteur du livre
      * @param editeur editeur du livre
      * @param decription description du livre
-     * @param isbn a supprimer
      * @param nombrePages nombre de pages du livre
      * @param quantiteDispo Quantité disponible du livre pour emprunt
      * @param emprunt Relation avec la table emprunt
      * @param urlImage Url de l'image du livre
      */
-    public Livre(Long idLivre, String titre, String auteur, String editeur, String decription, String isbn, int nombrePages, int quantiteDispo, Set<Emprunt> emprunt, String urlImage) {
+    public Livre(Long idLivre, String titre, String auteur, String editeur, String decription, int nombrePages, int quantiteDispo, Set<Emprunt> emprunt, String urlImage) {
         this.idLivre = idLivre;
         this.titre = titre;
         this.auteur = auteur;
         this.editeur = editeur;
         this.decription = decription;
-        this.isbn = isbn;
         this.nombrePages = nombrePages;
         this.quantiteDispo = quantiteDispo;
         this.emprunt = emprunt;
@@ -141,13 +134,6 @@ public class Livre implements Serializable {
         this.decription = decription;
     }
 
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
 
     public int getNombrePages() {
         return nombrePages;
@@ -189,7 +175,6 @@ public class Livre implements Serializable {
                 ", auteur='" + auteur + '\'' +
                 ", editeur='" + editeur + '\'' +
                 ", decription='" + decription + '\'' +
-                ", isbn='" + isbn + '\'' +
                 ", nombrePages=" + nombrePages +
                 ", quantiteDispo=" + quantiteDispo +
                 ", urlImage='" + urlImage + '\'' +

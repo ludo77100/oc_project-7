@@ -28,28 +28,16 @@ Vous avez besoin d'installer:
 
 1 - Initialiser les bases de données avec comme nom : maBibliMsBibliotheque et une autre maBibliMsUtilisateur (port: 3306 - username: root - password: vide)
 2 - Cloner le projet depuis le repository
-
-Pour la base de données vous pouvez :
-
-- la laisser déployer ses tables automatiquement au lancement de l'application grâce à hibernate et ensuite si vous le souhaitez, déployer le fichier: "TODO"
-
-- déployer le schéma de BDD avec le fichier: "TODO" et ensuite si vous le souhaitez, déployer le fichier: "TODO"
-
-- déployer schéma et jeux de données avec le fichier : "TODO" (avant de lancer l'application pour la première fois)
-
-Si vous utilisez le jeux de données:
+3 - déployer les BDD avec les fichiers: "mabiblimsbibliotheque - structure et données.sql" et "mabiblimsutilisateur - strucutres et données.sql"
 
 Plusieurs utilisateurs ont été créés :
 
 Un administrateur:   
 - Identifiant : admin Mot de passe : admin
 
-Un Utilisateur:  
-- Identifiant : util Mot de passe : util
-
-Si vous n'utilisez pas le jeux de données:  
-Vous pouvez inscrire un nouvel utilisateur une fois l'application lancée en passant par swagger grâce à l'API (vous devez hasher le MDP avec https://www.bcrypt.fr/ pour que cela fonctionne)
-Vous pourrez ensuite faire une élévation de privilèges grâces à l'API avec swagger.
+Deux utilisateurs:  
+- Identifiant : ludo Mot de passe : ludo
+- Identifiant : aurelie Mot de passe : aurelie
 
 ###Ordre de lancement:
 

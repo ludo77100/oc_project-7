@@ -43,6 +43,10 @@ Deux utilisateurs:
 
 Lancer en premier les edges services et ensuite le microservice bibliotheque puis le microservice utilisateur en enfin clientUi
 
+## application.properties
+
+Les fichiers de configuration se trouve dans ce repository: https://github.com/ludo77100/maBibilotheque-config-repo
+
 ## Construit avec:
 * [Maven](https://maven.apache.org/)
 * [SpringBoot](https://spring.io/projects/spring-boot)

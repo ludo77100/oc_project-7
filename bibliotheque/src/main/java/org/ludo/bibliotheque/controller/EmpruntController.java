@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiOperation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.ludo.bibliotheque.BibliothequeApplication;
-import org.ludo.bibliotheque.dao.EmpruntRepository;
+
 import org.ludo.bibliotheque.entities.Emprunt;
 import org.ludo.bibliotheque.service.EmpruntService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -117,10 +116,8 @@ public class EmpruntController {
     @ApiOperation(value = "Pour retourner une liste de livre non rendue avant la date de fin d'emprunt")
     @GetMapping(value = "/emprunt")
     public List<Emprunt> listeLivreNonRendueApresDateFin(){
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         logger.debug("Appel controlleur listeLivreNonRendueApresDateFin");
 
         return empruntService.listeLivreNonRendueApresDateFin();
     }
-
 }

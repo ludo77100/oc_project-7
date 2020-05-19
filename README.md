@@ -15,7 +15,6 @@ Et des EDGE Service suivant:
 - Spring Cloud Config
 - Eureka
 - ZUUL
-- Zipkin
 
 ### Pré-requis
 
@@ -48,13 +47,23 @@ Deux utilisateurs:
 
 Lancer en premier les edges services et ensuite le microservice bibliotheque puis le microservice utilisateur en enfin clientUi
 
-## application.properties
+## application.properties:
 
 Les fichiers de configuration se trouve dans ce repository: https://github.com/ludo77100/maBibilotheque-config-repo
+
+## Port pour accéder au MicroService:
+
+- Bibliotheque : 8080
+- Utilisateur : 8081
+- ClientUI : 8090
+- Spring Cloud Config: 9101
+- Eureka: 8761
+- ZUUL: 9004
 
 ## Construit avec:
 * [Maven](https://maven.apache.org/)
 * [SpringBoot](https://spring.io/projects/spring-boot)
+* [Swagger](https://swagger.io/)
 
 ## Auteur
 Ludovic SOUPLET - Pour reconversion professionnelle via OpenclassRooms

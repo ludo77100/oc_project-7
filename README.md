@@ -26,8 +26,8 @@ Vous avez besoin d'installer:
 
 ### Installation
 
-1 - Initialiser les bases de données avec comme nom : maBibliMsBibliotheque et une autre maBibliMsUtilisateur (port: 3306 - username: root - password: vide) \n
-2 - Cloner le projet depuis le repository
+1 - Initialiser les bases de données avec comme nom : maBibliMsBibliotheque et une autre maBibliMsUtilisateur (port: 3306 - username: root - password: vide)  
+2 - Cloner le projet depuis le repository  
 3 - déployer les BDD avec les fichiers: "mabiblimsbibliotheque - structure et données.sql" et "mabiblimsutilisateur - strucutres et données.sql"
 
 Plusieurs utilisateurs ont été créés :

@@ -51,7 +51,7 @@ Lancer en premier les edges services et ensuite le microservice bibliotheque pui
 
 Les fichiers de configuration se trouve dans ce repository: https://github.com/ludo77100/maBibilotheque-config-repo
 
-## Port pour accéder au MicroService:
+## Port pour accéder aux MicroServices:
 
 - Bibliotheque : 8080
 - Utilisateur : 8081
